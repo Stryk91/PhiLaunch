@@ -1,0 +1,129 @@
+========================================
+    RNG SCRIPTS - FILE INDEX
+========================================
+
+Total Files: 20
+Created: 2025-11-12
+
+========================================
+🚀 START HERE:
+========================================
+
+→ START_HERE.bat
+    Main menu launcher for everything
+
+
+========================================
+📱 PHONE LINK MONITORING (8 files):
+========================================
+
+MENUS:
+  MONITOR_PHONELINK_MENU.bat ⭐ Main menu
+
+QUICK CHECKS:
+  quick_check_phonelink.bat          Fast check (30 sec)
+  monitor_phonelink.bat              Basic netstat monitor
+
+DETAILED MONITORING:
+  realtime_bandwidth_monitor.ps1     Live MB/s speeds
+  phonelink_traffic_logger.ps1       Continuous logging
+
+FIXES & GUIDES:
+  OPEN_PHONELINK_FIREWALL.bat        Open P2P ports
+  FIX_PHONELINK_LOCAL_TRANSFER.txt   Solutions guide
+  WIRESHARK_PHONELINK_GUIDE.txt      Packet capture tutorial
+
+
+========================================
+💾 USB PORT ANALYSIS (11 files):
+========================================
+
+MENUS:
+  USB_ANALYZER_MENU.bat ⭐ Main menu
+
+DIAGNOSTICS:
+  USB_QUICK_CHECK.bat                Fast check + Device Manager
+  USB_PORT_ANALYZER.ps1              Complete architecture report
+  COMPARE_USB_CONTROLLERS.ps1        Intel vs ASMedia analysis
+  IDENTIFY_USB_PORTS.bat             Find physical ports
+
+SPEED TESTING:
+  USB_SPEED_TEST.ps1                 Real transfer speed test
+
+FIXES:
+  FIX_ASMEDIA_USB.bat                Fix ASMedia performance
+  DOWNLOAD_USB_TOOLS.bat             Get USBDeview & USB Tree Viewer
+
+DOCUMENTATION:
+  USB_SITUATION_EXPLAINED.txt        Complete explanation
+  USB_ANALYSIS_RESULTS.txt           Your system analysis
+
+
+========================================
+📚 DOCUMENTATION (included above):
+========================================
+
+  README.txt                         Master guide
+  FILE_INDEX.txt                     This file
+
+
+========================================
+FILE TYPES:
+========================================
+
+.bat Files (9):
+  • Double-click to run
+  • Most don't need admin rights
+  • Exception: OPEN_PHONELINK_FIREWALL.bat
+
+.ps1 Files (5):
+  • PowerShell scripts
+  • Right-click → Run with PowerShell
+  • Or use menu .bat files
+
+.txt Files (6):
+  • Documentation
+  • Open with Notepad
+  • Read before running tools
+
+
+========================================
+QUICK REFERENCE:
+========================================
+
+PHONE LINK SLOW?
+  → quick_check_phonelink.bat
+  → If shows cloud: Use File Transfer mode
+
+FIND FASTEST USB PORT?
+  → IDENTIFY_USB_PORTS.bat
+  → Unplug/replug to test each port
+
+TEST USB SPEED?
+  → USB_SPEED_TEST.ps1
+  → Enter drive letter when prompted
+
+FIX ASMEDIA?
+  → FIX_ASMEDIA_USB.bat
+  → Update drivers or disable UASP
+
+
+========================================
+KEY FINDINGS:
+========================================
+
+YOUR SYSTEM:
+  Intel USB 3.0:    400-550 MB/s ✓ FAST
+  ASMedia USB 3.1:  200-300 MB/s ✗ SLOW
+
+YOUR PHONE:
+  Connected to: Intel USB 3.0 ✓ CORRECT!
+
+PHONE LINK:
+  Cloud transfer:   3+ hours ✗
+  File Transfer:    2 minutes ✓
+
+
+========================================
+END OF INDEX
+========================================

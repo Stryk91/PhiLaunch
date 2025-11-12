@@ -1,0 +1,223 @@
+========================================
+  WIRESHARK - PHONE LINK TRAFFIC CAPTURE
+========================================
+
+STEP 1: INSTALL WIRESHARK
+==========================
+
+1. Download: https://www.wireshark.org/download.html
+2. Install with default options
+3. During install, install "Npcap" when prompted (required!)
+4. Restart computer after install
+
+
+STEP 2: IDENTIFY PHONE LINK PROCESS
+====================================
+
+Before capturing, find the Phone Link process ID:
+
+1. Open Task Manager (Ctrl+Shift+Esc)
+2. Go to Details tab
+3. Look for these processes:
+   - PhoneExperienceHost.exe
+   - YourPhone.exe
+   - CompanionApp.exe
+4. Note the PID (Process ID) number
+
+
+STEP 3: START WIRESHARK CAPTURE
+================================
+
+1. Open Wireshark as Administrator
+   (Right-click → Run as Administrator)
+
+2. Select your network adapter:
+   - WiFi adapter if using WiFi
+   - Ethernet if using cable
+   - Usually the one with traffic activity
+
+3. Before starting capture, set a display filter:
+   Click the green shark fin icon OR press Ctrl+E
+
+4. Apply this capture filter to reduce noise:
+
+   not (broadcast or multicast) and not arp and not dns
+
+
+STEP 4: CAPTURE PHONE LINK TRAFFIC
+===================================
+
+METHOD A: Filter by Process (Windows only)
+-------------------------------------------
+
+After starting capture, use display filter:
+
+   tcp.port == [PORT] or udp.port == [PORT]
+
+(Replace [PORT] with the port Phone Link is using)
+
+To find the port:
+1. While capturing, start the file transfer
+2. In PowerShell run:
+   netstat -ano | findstr PhoneExperienceHost
+
+3. Note the port number (e.g., 192.168.50.149:51234)
+4. Use that port in Wireshark filter:
+   tcp.port == 51234
+
+
+METHOD B: Filter by Phone's IP Address
+---------------------------------------
+
+1. Find your phone's IP:
+   - On Samsung: Settings → About Phone → Status
+   - Or check Phone Link app for connected device IP
+
+2. In Wireshark display filter:
+
+   ip.addr == [PHONE_IP]
+
+   Example:
+   ip.addr == 192.168.50.200
+
+
+METHOD C: Filter by Protocol
+-----------------------------
+
+Phone Link might use:
+
+• SMB (File Sharing):
+  smb or smb2
+
+• HTTP/HTTPS:
+  http or tls
+
+• Custom protocol:
+  tcp.port > 40000
+
+
+STEP 5: ANALYZE THE CAPTURE
+============================
+
+WHAT TO LOOK FOR:
+-----------------
+
+1. PROTOCOL:
+   - Look at "Protocol" column
+   - Common: TCP, HTTP, TLS, SMB2
+
+2. DESTINATION IP:
+   - Check where data is going
+   - Phone Link uses:
+     * Local network (192.168.x.x) = Direct WiFi
+     * Microsoft servers (20.x.x.x, 40.x.x.x) = Cloud relay
+     * Azure IPs (13.x.x.x, 52.x.x.x) = Cloud transfer
+
+3. PACKET SIZE:
+   - Right-click packet → Follow → TCP Stream
+   - Shows actual data being sent
+
+4. TRANSFER METHOD:
+   Statistics → Conversations → TCP tab
+   - Shows all connections
+   - Sort by "Bytes" to find 50GB transfer
+
+
+USEFUL WIRESHARK FILTERS:
+==========================
+
+Show only large packets (>1000 bytes):
+   frame.len > 1000
+
+Show data transfer (not just ACKs):
+   tcp.len > 0
+
+Show specific IP range (your local network):
+   ip.addr == 192.168.50.0/24
+
+Exclude local traffic:
+   not ip.addr == 127.0.0.1
+
+Show only encrypted traffic:
+   tls
+
+
+STEP 6: EXPORT RESULTS
+=======================
+
+1. File → Export Packet Dissections → As Plain Text
+2. Or: Statistics → I/O Graph (shows bandwidth over time)
+3. Or: Statistics → Protocol Hierarchy (shows protocols used)
+
+
+COMMON FINDINGS:
+================
+
+IF YOU SEE:
+-----------
+
+• SMB2 packets → Direct file sharing (like network drive)
+  Local network transfer, fast
+
+• TLS to Microsoft IPs → Cloud relay transfer
+  Goes through Microsoft servers, slower
+
+• HTTP with chunked encoding → Web-based transfer
+  Browser-like upload/download
+
+• Large TCP streams on high port (>40000) → Direct P2P
+  Phone and PC talking directly
+
+
+WHAT THE 50GB TRANSFER LIKELY IS:
+==================================
+
+Based on Phone Link behavior:
+
+1. NEARBY SHARE (Most likely):
+   - Protocol: Custom over WiFi Direct
+   - Direct device-to-device
+   - Fast, local only
+   - Port: Usually 47000-47999
+
+2. CLOUD SYNC (If Nearby Share unavailable):
+   - Protocol: HTTPS/TLS
+   - To: *.microsoft.com, *.live.com
+   - Slower, uploads then downloads
+   - Port: 443 (HTTPS)
+
+3. SMB SHARE (Rare):
+   - Protocol: SMB2
+   - Direct network share
+   - Port: 445
+
+
+QUICK DETECTION METHOD:
+=======================
+
+1. Start file transfer
+2. Run this in PowerShell:
+
+   Get-NetTCPConnection | Where-Object {$_.OwningProcess -eq (Get-Process PhoneExperienceHost).Id} | Format-Table LocalAddress,LocalPort,RemoteAddress,RemotePort,State
+
+3. Look at RemoteAddress:
+   - 192.168.x.x = Local transfer (fast!)
+   - 20.x.x.x or 13.x.x.x = Microsoft cloud (slow)
+
+
+BANDWIDTH MONITORING:
+=====================
+
+While capturing in Wireshark:
+
+Statistics → I/O Graph
+
+This shows real-time bandwidth usage.
+If you see consistent 100+ Mbps, it's direct local transfer.
+If you see 10-50 Mbps with spikes, it's cloud relay.
+
+
+========================================
+        MADE BY: STRYK
+        FOR: Network Analysis
+========================================

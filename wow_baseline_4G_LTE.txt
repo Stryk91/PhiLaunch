@@ -1,0 +1,36 @@
+╔════════════════════════════════════════════════════════════╗
+║  BASELINE METRICS - 4G LTE (Pre-Starlink)                  ║
+║  Date: 2025-11-12                                          ║
+║  Location: Bullengarook, VIC                               ║
+║  ISP: Telstra 4G LTE Hotspot                               ║
+║  Destination: WoW Oceanic Sydney (103.4.115.248)           ║
+╚════════════════════════════════════════════════════════════╝
+
+4G LTE HOP (10.4.151.136):
+  • Average Latency: 96.1ms
+  • Best: 24.3ms
+  • Worst: 537.6ms
+  • Jitter (StDev): 125.9ms ⚠️  VERY HIGH
+  • Packet Loss: 0.0% ✓
+
+FINAL GAME SERVER HOP:
+  • Average Latency: 210.7ms
+  • Best: 169.9ms  
+  • Worst: 452.2ms
+  • Jitter (StDev): 62.9ms ⚠️  HIGH
+  • Packet Loss: 0.0% ✓
+
+OVERALL ASSESSMENT:
+  ⚠️  High latency (should be <50ms for Sydney)
+  ⚠️  Extreme jitter on 4G hop (125.9ms)
+  ⚠️  Variable game latency (169-452ms range)
+  ✓  No packet loss
+  
+EXPECTED IMPROVEMENTS WITH STARLINK:
+  • Latency: Should drop to 30-60ms
+  • Jitter: Should reduce to <10ms
+  • Consistency: Much more stable connection
+  • Gaming experience: Significant improvement
+
+Generated: $(date)
+TCP Congestion Control: BBR v1

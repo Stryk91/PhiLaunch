@@ -1,0 +1,25 @@
+#!/bin/bash
+# SSH Tunnel Helper - Common tunneling scenarios
+# This runs on the CLIENT side (your phone/other device)
+
+echo "=== SSH TUNNEL HELPER ==="
+echo ""
+echo "Run these commands from your PHONE/CLIENT device:"
+echo ""
+echo "1. FORWARD LOCAL PORT TO REMOTE SERVICE"
+echo "   Access a service running on your PC from your phone"
+echo "   ssh -L 8080:localhost:8080 stryk@192.168.254.73 -p 2222"
+echo "   Then browse to: http://localhost:8080 on your phone"
+echo ""
+echo "2. REVERSE TUNNEL (Access phone FROM PC)"
+echo "   ssh -R 9000:localhost:8080 stryk@192.168.254.73 -p 2222"
+echo "   Your PC can now access phone's port 8080 via localhost:9000"
+echo ""
+echo "3. DYNAMIC SOCKS PROXY"
+echo "   Use your PC as a proxy for all traffic"
+echo "   ssh -D 8080 stryk@192.168.254.73 -p 2222"
+echo "   Configure phone to use SOCKS5 proxy: localhost:8080"
+echo ""
+echo "4. KEEP TUNNEL ALIVE"
+echo "   Add -N flag to keep connection without shell"
+echo "   ssh -N -L 8080:localhost:8080 stryk@192.168.254.73 -p 2222"

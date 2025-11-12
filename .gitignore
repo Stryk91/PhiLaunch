@@ -1,0 +1,55 @@
+# Exclude everything by default
+/*
+
+# Include PhiLaunch essentials
+!.gitignore
+!*.sh
+!*.md
+!*.txt
+!*.bat
+!*.ps1
+!*.json
+!*.lua
+!automation/
+!remote-scripts/
+!RNG_Scripts/
+!exported_chats/
+!claude-bootstrap/
+!PROJECT_GUIDELINES.md
+!SSH-QUICK-REFERENCE.md
+
+# Exclude sensitive/unnecessary
+.aws
+.azure
+.ssh/
+.cache/
+.config/
+.local/
+.dotnet/
+.java/
+.docker/
+.vscode-server/
+.vscode-remote-containers/
+.claude/
+.claude.json
+.claude.json.backup
+.claude-spec/
+.rest-client/
+.john/
+.phigen_vault/
+.cspell/
+.gitconfig
+.bash_history
+.zsh_history
+.sudo_as_admin_successful
+.zprofile
+.bashrc*
+.bash_logout
+.profile
+
+# Exclude workspace submodule
+workspace/
+
+# Logs
+*.log
+*.out

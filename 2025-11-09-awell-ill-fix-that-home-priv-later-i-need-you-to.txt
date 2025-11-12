@@ -1,0 +1,49 @@
+
+ ▐▛███▜▌   Claude Code v2.0.36
+▝▜█████▛▘  Sonnet 4.5 · Claude Max
+  ▘▘ ▝▝    /home/STRYK
+═════════════════════════════════════ Conversation compacted · ctrl+o for history ════════════════════════════════════
+
+> /compact just do a quick one and outlier compact so i can restart 
+  ⎿  Compacted (ctrl+o to see full summary)
+  ⎿ Read 
+    ../../mnt/c/Users/Stryker/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json
+    (186 lines)
+  ⎿ Read ../../mnt/c/Users/Stryker/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/matrix_sc
+    anlines.hlsl (56 lines)
+  ⎿  Read matrix_terminal_theme.json (28 lines)
+  ⎿  Read matrix_scanlines.hlsl (56 lines)
+
+> /plugin 
+  ⎿  (no content)
+
+> /plugin marketplace add anthropics/claude-code 
+  ⎿  Successfully added marketplace: claude-code-plugins
+
+> /plugin marketplace add payloadcms/payload 
+  ⎿  Successfully added marketplace: payload
+
+> plugin marketplace add eyaltoledano/claude-task-master 
+
+● I can see you're adding plugin marketplaces. Let me know when you're ready and if you need help with anything!
+
+> /plugin marketplace add ruvnet/claude-flow 
+  ⎿  Error: Invalid schema: plugins.0: Unrecognized key(s) in object: 'bugs', 'features', 'requirements'
+
+> /plugin marketplace add feiskyer/claude-code-settings 
+  ⎿  Successfully added marketplace: claude-code-settings
+
+> /plugin marketplace add ComposioHQ/awesome-claude-skills 
+  ⎿  Successfully added marketplace: awesome-claude-skills
+
+> /plugin marketplace add anthropics/skills 
+  ⎿  Successfully added marketplace: anthropic-agent-skills
+
+> /plugin marketplace add wshobson/agents 
+  ⎿  Successfully added marketplace: claude-code-workflows
+
+> /plugin marketplace add davila7/claude-code-templates 
+  ⎿  Successfully added marketplace: claude-code-templates
+
+
+

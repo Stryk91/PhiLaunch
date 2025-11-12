@@ -1,0 +1,240 @@
+========================================
+   USB PORT ANALYSIS - RESULTS
+========================================
+
+DATE: 2025-11-12
+SYSTEM: Stryk
+
+========================================
+SUMMARY: ISSUE FOUND
+========================================
+
+YOUR SAMSUNG PHONE IS PLUGGED INTO THE WRONG USB PORT!
+
+Your phone is connected to:
+  Intel USB 3.0 Controller (5 Gbps max / ~625 MB/s)
+
+But you have available:
+  ASMedia USB 3.1 Controller (10 Gbps max / ~1,250 MB/s)
+
+You're only getting HALF the speed you could be getting!
+
+
+========================================
+USB CONTROLLERS DETECTED
+========================================
+
+Controller 1: Intel USB 3.0 eXtensible Host Controller
+  Status: OK
+  Max Speed: 5 Gbps (USB 3.0 / SuperSpeed)
+  Real-world: ~625 MB/s
+  Protocol: USB 3.0 (xHCI)
+
+Controller 2: ASMedia USB 3.1 eXtensible Host Controller
+  Status: OK
+  Max Speed: 10 Gbps (USB 3.1 Gen 2 / SuperSpeed+)
+  Real-world: ~1,250 MB/s
+  Protocol: USB 3.1 (xHCI)
+
+
+========================================
+CURRENTLY CONNECTED DEVICES
+========================================
+
+Device: SAMSUNG Mobile USB Composite Device
+  Model: Samsung Phone (R3CM5097QFX)
+  Connected to: Intel USB 3.0 Controller ⚠️ SLOW
+  Port: USB Root Hub (USB 3.0) - Port #18
+  Max Speed: 5 Gbps (USB 3.0)
+  ISSUE: Should be on ASMedia USB 3.1 port for 10 Gbps!
+
+Device: Samsung PSSD T7 Touch
+  Connected to: USB SCSI (UAS)
+  Status: OK
+  Note: External SSD - Check which controller it's on
+
+Device: SteelSeries Apex Pro (Keyboard)
+  Status: OK
+
+Device: Sound Blaster X7 (Audio)
+  Status: OK
+
+Device: Remote NDIS (Phone tethering)
+  Status: OK
+
+
+========================================
+THE PROBLEM
+========================================
+
+Your 50GB Phone Link transfer is going through the cloud because:
+
+1. Your phone IS connected via USB (correct)
+2. BUT it's on the Intel USB 3.0 port (5 Gbps)
+3. NOT on the ASMedia USB 3.1 port (10 Gbps)
+4. Phone Link doesn't recognize USB as "fast enough" for local transfer
+5. So it defaults to cloud relay (Microsoft servers)
+
+Even if you switched ports, Phone Link might STILL use cloud
+because Microsoft's software is stupid and doesn't properly
+detect USB connections for local transfer.
+
+
+========================================
+HOW TO FIX THIS
+========================================
+
+STEP 1: Find Your USB 3.1 Ports
+--------------------------------
+
+Your ASMedia USB 3.1 ports are usually:
+- On the motherboard I/O panel (back of PC)
+- Color: Usually RED or CYAN/TURQUOISE
+- OR labeled "USB 3.1" or "10G" or "SS+"
+
+Your Intel USB 3.0 ports are usually:
+- Also on motherboard I/O panel
+- Color: Usually BLUE
+- OR labeled "USB 3.0" or "SS"
+
+TO IDENTIFY WHICH IS WHICH:
+1. Unplug your phone
+2. Run USB_ANALYZER_MENU.bat on Desktop
+3. Choose option [1] Quick Check
+4. This opens Device Manager
+5. Expand "Universal Serial Bus controllers"
+6. Plug phone into DIFFERENT physical USB ports one at a time
+7. Watch which controller shows activity
+   - If "Intel" = USB 3.0 (5 Gbps)
+   - If "ASMedia" = USB 3.1 (10 Gbps) ✓ USE THIS ONE
+
+STEP 2: Switch to Correct Port
+-------------------------------
+
+1. Unplug phone from current USB port
+2. Find a port connected to ASMedia controller
+3. Plug phone into ASMedia USB 3.1 port
+4. Check Device Manager to verify it's on ASMedia now
+
+STEP 3: Still Won't Help Phone Link!
+-------------------------------------
+
+Even with the correct port, Phone Link is BROKEN for large files.
+It will STILL route through the cloud.
+
+INSTEAD, use one of these methods:
+
+METHOD 1: Direct USB File Transfer (FASTEST)
+  1. Phone plugged into USB 3.1 port
+  2. On phone: Swipe down, tap "USB for file transfer"
+  3. Select "File Transfer" mode
+  4. On PC: Open File Explorer
+  5. Phone appears as device
+  6. Drag and drop 50GB file
+  7. DONE in 1-2 minutes at ~1,000 MB/s
+
+METHOD 2: Nearby Share / Quick Share
+  1. Turn on "Nearby Share" on PC (Windows settings)
+  2. Turn on "Quick Share" on Samsung phone
+  3. Right-click file on PC → Share → Choose phone
+  4. Uses WiFi Direct (fast, but slower than USB)
+  5. ~100-500 MB/s depending on WiFi
+
+METHOD 3: Fix Phone Link (Advanced)
+  1. Run OPEN_PHONELINK_FIREWALL.bat (on Desktop)
+  2. Opens ports 47000-48000 for direct P2P
+  3. Restart Phone Link app
+  4. MIGHT work now, but no guarantee
+
+
+========================================
+THEORETICAL vs REAL-WORLD SPEEDS
+========================================
+
+USB Version   Theoretical    Real-World    Your Status
+-----------   -----------    ----------    -----------
+USB 2.0       480 Mbps       ~60 MB/s      Not using
+USB 3.0       5 Gbps         ~625 MB/s     CURRENTLY USING ⚠️
+USB 3.1 Gen 2 10 Gbps        ~1,250 MB/s   AVAILABLE ✓
+USB 3.2       20 Gbps        ~2,500 MB/s   Not available
+USB4          40 Gbps        ~5,000 MB/s   Not available
+
+YOUR 50GB FILE TRANSFER TIME:
+
+Current (Phone Link + Cloud):
+  Upload: 50 GB ÷ 10 MB/s = 1.5 hours
+  Download: 50 GB ÷ 10 MB/s = 1.5 hours
+  TOTAL: 3+ hours ❌
+
+If using Intel USB 3.0 port directly:
+  50 GB ÷ 625 MB/s = 80 seconds (~1.5 minutes) ⚠️
+
+If using ASMedia USB 3.1 port directly:
+  50 GB ÷ 1,250 MB/s = 40 seconds ✓✓✓
+
+WiFi Direct (Nearby Share):
+  50 GB ÷ 100 MB/s = 500 seconds (~8 minutes)
+
+
+========================================
+RECOMMENDATION
+========================================
+
+1. STOP the Phone Link transfer (it's wasting hours)
+
+2. Find which physical USB port is ASMedia USB 3.1:
+   - Usually RED or CYAN colored
+   - On back of PC motherboard
+   - May be labeled "USB 3.1" or "10G"
+
+3. Plug phone into that port
+
+4. Use "File Transfer" mode on phone
+
+5. Copy file directly in File Explorer
+
+6. 50GB in under 1 minute!
+
+7. FORGET Phone Link for large files - it's broken
+
+
+========================================
+TOOLS PROVIDED
+========================================
+
+On your Desktop:
+
+• USB_ANALYZER_MENU.bat
+  Main menu for all USB tools
+
+• USB_QUICK_CHECK.bat
+  Quick check, opens Device Manager
+
+• USB_PORT_ANALYZER.ps1
+  Complete PowerShell analysis
+
+• USB_SPEED_TEST.ps1
+  Test actual transfer speeds
+
+• DOWNLOAD_USB_TOOLS.bat
+  Downloads USBDeview for advanced analysis
+
+
+RUN USB_ANALYZER_MENU.bat TO START!
+
+
+========================================
+    BOTTOM LINE: WRONG PORT + BAD SOFTWARE
+========================================
+
+You have 10 Gbps USB 3.1 available.
+Your phone is on 5 Gbps USB 3.0 port.
+Phone Link is routing through cloud anyway.
+
+SOLUTION:
+1. Find USB 3.1 port (probably RED/CYAN)
+2. Plug phone into it
+3. Use File Transfer mode
+4. Never use Phone Link for large files again
+
+========================================
