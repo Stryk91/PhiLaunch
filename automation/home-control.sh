@@ -54,7 +54,7 @@ case "$ACTION" in
         echo "  restart-ssh   - Restart SSH server"
         echo ""
         echo "Examples:"
-        echo "  ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh status'"
-        echo "  ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh list-tasks'"
+        echo "  ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/home-control.sh status'"
+        echo "  ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/home-control.sh list-tasks'"
         ;;
 esac
