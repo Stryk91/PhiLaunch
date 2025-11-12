@@ -4,7 +4,9 @@
 - **Host**: 192.168.50.149 (LAN) - Use with WireGuard for WAN
 - **Port**: 2222
 - **User**: stryk
-- **Pass**: 7861
+- **Auth**: Use SSH keys (recommended) - See setup.sh for config
+
+> ⚠️ **NOTE**: This is a legacy reference file. Use `./setup.sh` to configure your personal settings, then run `./tools/generate-phone-shortcuts.sh` to create personalized shortcuts.
 
 ## 1. Quick Script Execution (from phone)
 
