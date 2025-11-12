@@ -4,9 +4,8 @@
 
 SESSION_NAME="$1"
 shift
-COMMAND="$@"
 
-if [ -z "$SESSION_NAME" ] || [ -z "$COMMAND" ]; then
+if [ -z "$SESSION_NAME" ] || [ $# -eq 0 ]; then
     echo "Usage: $0 <session-name> <command>"
     echo ""
     echo "Active tmux sessions:"
@@ -15,7 +14,7 @@ if [ -z "$SESSION_NAME" ] || [ -z "$COMMAND" ]; then
 fi
 
 # Create detached tmux session and run command
-tmux new-session -d -s "$SESSION_NAME" "$COMMAND"
+tmux new-session -d -s "$SESSION_NAME" "$@"
 
 echo "✓ Task started in tmux session: $SESSION_NAME"
 echo ""
