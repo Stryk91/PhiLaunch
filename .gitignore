@@ -16,6 +16,7 @@
 !exported_chats/
 !claude-bootstrap/
 !philaunch_gui/
+!config/
 !PROJECT_GUIDELINES.md
 !SSH-QUICK-REFERENCE.md
 
@@ -50,6 +51,9 @@
 
 # Exclude workspace submodule
 workspace/
+
+# Configuration (personal settings - DO NOT COMMIT)
+config/philaunch.conf
 
 # Logs
 *.log

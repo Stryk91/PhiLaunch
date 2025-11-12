@@ -1,0 +1,39 @@
+# PhiLaunch Configuration Template
+# Copy to philaunch.conf and customize for your environment
+
+# === System Paths ===
+PHILAUNCH_HOME="/home/${USER}"
+PHILAUNCH_AUTOMATION_DIR="${PHILAUNCH_HOME}/automation"
+PHILAUNCH_SCRIPTS_DIR="${PHILAUNCH_HOME}"
+
+# === Network Configuration ===
+PHILAUNCH_LAN_IP="192.168.50.149"  # Your LAN IP address
+PHILAUNCH_SSH_PORT="2222"
+PHILAUNCH_SSH_USER="${USER}"
+
+# === SSH Configuration ===
+# Use SSH keys for authentication - DO NOT store passwords!
+PHILAUNCH_SSH_KEY="${HOME}/.ssh/id_ed25519"
+
+# === WireGuard VPN ===
+PHILAUNCH_WG_INTERFACE="wg0"
+PHILAUNCH_WG_CONFIG="/etc/wireguard/wg0.conf"
+
+# === GUI Configuration ===
+PHILAUNCH_GUI_DIR="${PHILAUNCH_HOME}/philaunch_gui"
+PHILAUNCH_GUI_THEME="matrix"  # matrix, cyberpunk, fire
+PHILAUNCH_GUI_REFRESH_INTERVAL="2000"  # milliseconds
+
+# === Automation Settings ===
+PHILAUNCH_TMUX_SESSION_PREFIX="philaunch"
+PHILAUNCH_LOG_DIR="${PHILAUNCH_HOME}/logs"
+PHILAUNCH_BACKUP_DIR="${PHILAUNCH_HOME}/backups"
+
+# === Optional Services ===
+PHILAUNCH_ENABLE_MONITORING="true"
+PHILAUNCH_ENABLE_WEB_DASHBOARD="false"
+PHILAUNCH_WEB_PORT="8080"
+
+# === Notification Settings ===
+PHILAUNCH_NOTIFY_ON_COMPLETION="false"
+PHILAUNCH_NOTIFY_METHOD="none"  # none, discord, email, slack

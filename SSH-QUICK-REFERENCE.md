@@ -4,7 +4,7 @@
 - **Host**: 192.168.50.149 (LAN) - Use with WireGuard for WAN
 - **Port**: 2222
 - **User**: stryk
-- **Pass**: 7861
+- **Auth**: SSH key (see SSH-KEY-SETUP.md)
 
 ## 1. Quick Script Execution (from phone)
 
