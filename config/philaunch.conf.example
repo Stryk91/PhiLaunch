@@ -1,0 +1,71 @@
+# PhiLaunch Configuration Template
+# Copy this file to philaunch.conf and customize for your environment
+# DO NOT commit philaunch.conf to version control (contains personal info)
+
+# ============================================================================
+# SERVER CONNECTION SETTINGS
+# ============================================================================
+
+# The username for SSH connections
+PHILAUNCH_USER="your-username"
+
+# The IP address of your PhiLaunch server (LAN address)
+PHILAUNCH_HOST="192.168.1.100"
+
+# SSH port (default: 2222, standard SSH: 22)
+PHILAUNCH_SSH_PORT="2222"
+
+# Full SSH connection string (auto-generated from above)
+PHILAUNCH_SSH_CONN="${PHILAUNCH_USER}@${PHILAUNCH_HOST}"
+
+# ============================================================================
+# DIRECTORY PATHS
+# ============================================================================
+
+# PhiLaunch installation directory
+PHILAUNCH_HOME="${HOME}/PhiLaunch"
+
+# User's home directory on the server
+PHILAUNCH_USER_HOME="${HOME}"
+
+# Directory for automation scripts
+PHILAUNCH_AUTOMATION_DIR="${PHILAUNCH_HOME}/automation"
+
+# Directory for remote scripts
+PHILAUNCH_REMOTE_SCRIPTS_DIR="${PHILAUNCH_HOME}/remote-scripts"
+
+# Directory for logs
+PHILAUNCH_LOG_DIR="${PHILAUNCH_HOME}/logs"
+
+# ============================================================================
+# MONITORING SETTINGS
+# ============================================================================
+
+# WoW server IP for monitoring (Sydney/Oceanic)
+WOW_SERVER_IP="103.4.115.248"
+
+# Monitoring interval in seconds
+MONITOR_INTERVAL="60"
+
+# ============================================================================
+# NETWORK SETTINGS
+# ============================================================================
+
+# WireGuard VPN interface (if using VPN for WAN access)
+WIREGUARD_INTERFACE="wg0"
+
+# Enable WAN access warnings (set to "true" to show VPN reminders)
+ENABLE_WAN_WARNINGS="true"
+
+# ============================================================================
+# ADVANCED SETTINGS
+# ============================================================================
+
+# Tmux session prefix for background tasks
+TMUX_SESSION_PREFIX="philaunch"
+
+# Enable color output (true/false)
+ENABLE_COLOR_OUTPUT="true"
+
+# Enable debug logging (true/false)
+DEBUG_MODE="false"

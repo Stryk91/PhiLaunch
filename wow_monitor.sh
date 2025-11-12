@@ -3,9 +3,19 @@
 # WoW Connection Monitor for Sydney/Oceanic Servers
 # Monitors latency, jitter, and packet loss from Bullengarook (4G LTE) to Sydney
 
-WOW_SERVER="103.4.115.248"
-LOG_FILE="/home/STRYK/wow_connection_$(date +%Y%m%d).log"
-INTERVAL=60  # seconds between checks
+# Load PhiLaunch configuration
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -f "${SCRIPT_DIR}/config/load-config.sh" ]; then
+    source "${SCRIPT_DIR}/config/load-config.sh"
+    WOW_SERVER="${WOW_SERVER_IP}"
+    LOG_FILE="${PHILAUNCH_LOG_DIR}/wow_connection_$(date +%Y%m%d).log"
+    INTERVAL="${MONITOR_INTERVAL}"
+else
+    # Fallback to defaults if config not found
+    WOW_SERVER="103.4.115.248"
+    LOG_FILE="${HOME}/wow_connection_$(date +%Y%m%d).log"
+    INTERVAL=60
+fi
 
 echo "========================================" | tee -a "$LOG_FILE"
 echo "WoW Connection Monitor Started" | tee -a "$LOG_FILE"
