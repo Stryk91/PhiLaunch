@@ -1,6 +1,6 @@
 # PhiLaunch Phone Shortcuts (Android Optimized)
 
-**Connection**: `ssh stryk@192.168.254.73 -p 2222`
+**Connection**: `ssh stryk@192.168.50.149 -p 2222`
 
 ---
 
@@ -8,22 +8,22 @@
 
 ### System Status
 ```
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh status'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/home-control.sh status'
 ```
 
 ### List Available Scripts
 ```
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh list-scripts'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/home-control.sh list-scripts'
 ```
 
 ### List Running Tasks
 ```
-ssh stryk@192.168.254.73 -p 2222 'tmux list-sessions'
+ssh stryk@192.168.50.149 -p 2222 'tmux list-sessions'
 ```
 
 ### View Recent Logs
 ```
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh logs'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/home-control.sh logs'
 ```
 
 ---
@@ -32,22 +32,22 @@ ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh logs'
 
 ### WoW Monitor
 ```
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/launch-script.sh wow_monitor.sh'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/launch-script.sh wow_monitor.sh'
 ```
 
 ### WoW Quick Check
 ```
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/launch-script.sh wow_quick_check.sh'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/launch-script.sh wow_quick_check.sh'
 ```
 
 ### System Info Check
 ```
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/launch-script.sh system_info_checker.sh'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/launch-script.sh system_info_checker.sh'
 ```
 
 ### Status Monitor
 ```
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/launch-script.sh status_monitor.sh'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/launch-script.sh status_monitor.sh'
 ```
 
 ---
@@ -56,26 +56,26 @@ ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/launch-script.sh status_moni
 
 ### Start Background Task
 ```
-ssh stryk@192.168.254.73 -p 2222
+ssh stryk@192.168.50.149 -p 2222
 ~/automation/start-long-task.sh TASKNAME 'command here'
 exit
 ```
 
 ### Check Background Tasks
 ```
-ssh stryk@192.168.254.73 -p 2222 'tmux list-sessions'
+ssh stryk@192.168.50.149 -p 2222 'tmux list-sessions'
 ```
 
 ### Attach to Task (interactive)
 ```
-ssh stryk@192.168.254.73 -p 2222
+ssh stryk@192.168.50.149 -p 2222
 tmux attach -t TASKNAME
 # Ctrl+B then D to detach
 ```
 
 ### Kill Background Task
 ```
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh kill-task TASKNAME'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/home-control.sh kill-task TASKNAME'
 ```
 
 ---
@@ -84,32 +84,32 @@ ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh kill-task TA
 
 ### Restart SSH Server
 ```
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh restart-ssh'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/home-control.sh restart-ssh'
 ```
 
 ### Free Memory Info
 ```
-ssh stryk@192.168.254.73 -p 2222 'free -h'
+ssh stryk@192.168.50.149 -p 2222 'free -h'
 ```
 
 ### Disk Usage
 ```
-ssh stryk@192.168.254.73 -p 2222 'df -h /'
+ssh stryk@192.168.50.149 -p 2222 'df -h /'
 ```
 
 ### Uptime
 ```
-ssh stryk@192.168.254.73 -p 2222 'uptime -p'
+ssh stryk@192.168.50.149 -p 2222 'uptime -p'
 ```
 
 ### Network Info
 ```
-ssh stryk@192.168.254.73 -p 2222 'hostname -I'
+ssh stryk@192.168.50.149 -p 2222 'hostname -I'
 ```
 
 ### Process List (top 10)
 ```
-ssh stryk@192.168.254.73 -p 2222 'ps aux --sort=-%mem | head -11'
+ssh stryk@192.168.50.149 -p 2222 'ps aux --sort=-%mem | head -11'
 ```
 
 ---
@@ -118,22 +118,22 @@ ssh stryk@192.168.254.73 -p 2222 'ps aux --sort=-%mem | head -11'
 
 ### Download File
 ```
-scp -P 2222 stryk@192.168.254.73:/home/STRYK/file.txt ~/storage/downloads/
+scp -P 2222 stryk@192.168.50.149:/home/STRYK/file.txt ~/storage/downloads/
 ```
 
 ### Upload File
 ```
-scp -P 2222 ~/storage/downloads/file.txt stryk@192.168.254.73:/home/STRYK/
+scp -P 2222 ~/storage/downloads/file.txt stryk@192.168.50.149:/home/STRYK/
 ```
 
 ### List Files
 ```
-ssh stryk@192.168.254.73 -p 2222 'ls -lh /home/STRYK/'
+ssh stryk@192.168.50.149 -p 2222 'ls -lh /home/STRYK/'
 ```
 
 ### View File Content
 ```
-ssh stryk@192.168.254.73 -p 2222 'cat /home/STRYK/file.txt'
+ssh stryk@192.168.50.149 -p 2222 'cat /home/STRYK/file.txt'
 ```
 
 ---
@@ -142,17 +142,17 @@ ssh stryk@192.168.254.73 -p 2222 'cat /home/STRYK/file.txt'
 
 ### Git Status
 ```
-ssh stryk@192.168.254.73 -p 2222 'cd /home/STRYK && git status'
+ssh stryk@192.168.50.149 -p 2222 'cd /home/STRYK && git status'
 ```
 
 ### Git Pull Latest
 ```
-ssh stryk@192.168.254.73 -p 2222 'cd /home/STRYK && git pull origin main'
+ssh stryk@192.168.50.149 -p 2222 'cd /home/STRYK && git pull origin main'
 ```
 
 ### Git Commit All
 ```
-ssh stryk@192.168.254.73 -p 2222 'cd /home/STRYK && git add . && git commit -m "Update from phone" && git push'
+ssh stryk@192.168.50.149 -p 2222 'cd /home/STRYK && git add . && git commit -m "Update from phone" && git push'
 ```
 
 ---
@@ -161,17 +161,67 @@ ssh stryk@192.168.254.73 -p 2222 'cd /home/STRYK && git add . && git commit -m "
 
 ### Forward Web Service (8080)
 ```
-ssh -L 8080:localhost:8080 stryk@192.168.254.73 -p 2222
+ssh -L 8080:localhost:8080 stryk@192.168.50.149 -p 2222
 ```
 
 ### Forward Multiple Ports
 ```
-ssh -L 8080:localhost:8080 -L 3000:localhost:3000 stryk@192.168.254.73 -p 2222
+ssh -L 8080:localhost:8080 -L 3000:localhost:3000 stryk@192.168.50.149 -p 2222
 ```
 
 ### Background Tunnel
 ```
-ssh -N -f -L 8080:localhost:8080 stryk@192.168.254.73 -p 2222
+ssh -N -f -L 8080:localhost:8080 stryk@192.168.50.149 -p 2222
+```
+
+---
+
+## WireGuard VPN for WAN Access
+
+**LAN vs WAN:**
+- **LAN** (192.168.50.149): Works when on home WiFi
+- **WAN** (from anywhere): Requires WireGuard VPN connection first
+
+### Using WireGuard
+
+**1. Install WireGuard on Android:**
+```
+Download from Google Play Store or F-Droid
+https://www.wireguard.com/install/
+```
+
+**2. Add Your Config:**
+- Import your existing .conf file
+- Or scan QR code from your WireGuard server
+
+**3. Connect Workflow:**
+```bash
+# 1. Enable WireGuard VPN on phone (tap to connect in app)
+# 2. Once connected, you're "on the network" at 192.168.50.x
+# 3. Use all SSH commands normally:
+ssh stryk@192.168.50.149 -p 2222
+pcstatus
+pcwow
+# etc.
+
+# 4. Disconnect WireGuard when done
+```
+
+**Key Point:** Once WireGuard is connected, ALL the shortcuts below work exactly the same whether you're home or away!
+
+**Alternative - WireGuard in Termux:**
+```bash
+# Install in Termux (requires root or kernel support)
+pkg install wireguard-tools
+
+# Add config
+nano ~/.wireguard/wg0.conf
+
+# Connect
+wg-quick up wg0
+
+# Disconnect
+wg-quick down wg0
 ```
 
 ---
@@ -210,19 +260,19 @@ nano ~/.bashrc
 Add these lines:
 ```bash
 # PhiLaunch PC Shortcuts
-alias pc='ssh stryk@192.168.254.73 -p 2222'
-alias pcstatus='ssh stryk@192.168.254.73 -p 2222 "bash ~/automation/home-control.sh status"'
-alias pctasks='ssh stryk@192.168.254.73 -p 2222 "tmux list-sessions"'
-alias pcscripts='ssh stryk@192.168.254.73 -p 2222 "bash ~/automation/home-control.sh list-scripts"'
-alias pclogs='ssh stryk@192.168.254.73 -p 2222 "bash ~/automation/home-control.sh logs"'
-alias pcwow='ssh stryk@192.168.254.73 -p 2222 "bash ~/automation/launch-script.sh wow_monitor.sh"'
-alias pcwowcheck='ssh stryk@192.168.254.73 -p 2222 "bash ~/automation/launch-script.sh wow_quick_check.sh"'
-alias pcsysinfo='ssh stryk@192.168.254.73 -p 2222 "bash ~/automation/launch-script.sh system_info_checker.sh"'
-alias pcmem='ssh stryk@192.168.254.73 -p 2222 "free -h"'
-alias pcdisk='ssh stryk@192.168.254.73 -p 2222 "df -h /"'
-alias pcup='ssh stryk@192.168.254.73 -p 2222 "uptime -p"'
-alias pcgit='ssh stryk@192.168.254.73 -p 2222 "cd /home/STRYK && git status"'
-alias pckill='ssh stryk@192.168.254.73 -p 2222 "bash ~/automation/home-control.sh kill-task "'
+alias pc='ssh stryk@192.168.50.149 -p 2222'
+alias pcstatus='ssh stryk@192.168.50.149 -p 2222 "bash ~/automation/home-control.sh status"'
+alias pctasks='ssh stryk@192.168.50.149 -p 2222 "tmux list-sessions"'
+alias pcscripts='ssh stryk@192.168.50.149 -p 2222 "bash ~/automation/home-control.sh list-scripts"'
+alias pclogs='ssh stryk@192.168.50.149 -p 2222 "bash ~/automation/home-control.sh logs"'
+alias pcwow='ssh stryk@192.168.50.149 -p 2222 "bash ~/automation/launch-script.sh wow_monitor.sh"'
+alias pcwowcheck='ssh stryk@192.168.50.149 -p 2222 "bash ~/automation/launch-script.sh wow_quick_check.sh"'
+alias pcsysinfo='ssh stryk@192.168.50.149 -p 2222 "bash ~/automation/launch-script.sh system_info_checker.sh"'
+alias pcmem='ssh stryk@192.168.50.149 -p 2222 "free -h"'
+alias pcdisk='ssh stryk@192.168.50.149 -p 2222 "df -h /"'
+alias pcup='ssh stryk@192.168.50.149 -p 2222 "uptime -p"'
+alias pcgit='ssh stryk@192.168.50.149 -p 2222 "cd /home/STRYK && git status"'
+alias pckill='ssh stryk@192.168.50.149 -p 2222 "bash ~/automation/home-control.sh kill-task "'
 ```
 
 Save and reload:
@@ -250,20 +300,20 @@ mkdir -p ~/.shortcuts
 # PC Status
 cat > ~/.shortcuts/pc-status.sh << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh status'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/home-control.sh status'
 EOF
 
 # WoW Monitor
 cat > ~/.shortcuts/wow-monitor.sh << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
-ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/start-long-task.sh wow "./wow_monitor.sh"'
+ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/start-long-task.sh wow "./wow_monitor.sh"'
 echo "WoW monitor started in background"
 EOF
 
 # Check Tasks
 cat > ~/.shortcuts/check-tasks.sh << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
-ssh stryk@192.168.254.73 -p 2222 'tmux list-sessions'
+ssh stryk@192.168.50.149 -p 2222 'tmux list-sessions'
 EOF
 
 # Make executable
@@ -317,10 +367,10 @@ https://f-droid.org/en/packages/com.termux.tasker/
 
 | Shortcut | Phrase |
 |----------|--------|
-| `@pcstat` | `ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/home-control.sh status'` |
-| `@pcwow` | `ssh stryk@192.168.254.73 -p 2222 'bash ~/automation/launch-script.sh wow_monitor.sh'` |
-| `@pctask` | `ssh stryk@192.168.254.73 -p 2222 'tmux list-sessions'` |
-| `@pcssh` | `ssh stryk@192.168.254.73 -p 2222` |
+| `@pcstat` | `ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/home-control.sh status'` |
+| `@pcwow` | `ssh stryk@192.168.50.149 -p 2222 'bash ~/automation/launch-script.sh wow_monitor.sh'` |
+| `@pctask` | `ssh stryk@192.168.50.149 -p 2222 'tmux list-sessions'` |
+| `@pcssh` | `ssh stryk@192.168.50.149 -p 2222` |
 
 Type `@pcstat` → auto-expands to full command → paste in Termux
 
@@ -334,7 +384,7 @@ Type `@pcstat` → auto-expands to full command → paste in Termux
 ssh-keygen -t ed25519 -C "android-phone"
 
 # Copy public key to PC
-ssh-copy-id -p 2222 stryk@192.168.254.73
+ssh-copy-id -p 2222 stryk@192.168.50.149
 
 # Or manually:
 cat ~/.ssh/id_ed25519.pub
@@ -356,7 +406,7 @@ If you prefer a GUI SSH app:
 **Setup in JuiceSSH:**
 1. Create Connection
    - Nickname: "PhiLaunch PC"
-   - Host: 192.168.254.73
+   - Host: 192.168.50.149
    - Port: 2222
    - Username: stryk
 2. Save connection
@@ -386,7 +436,7 @@ If you prefer a GUI SSH app:
 ### "Connection refused"
 ```bash
 # Check if SSH server is running
-ssh stryk@192.168.254.73 -p 2222 'sudo systemctl status ssh'
+ssh stryk@192.168.50.149 -p 2222 'sudo systemctl status ssh'
 ```
 
 ### "Permission denied"
