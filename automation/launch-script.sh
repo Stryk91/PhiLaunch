@@ -2,7 +2,11 @@
 # Home Automation - Launch any PhiLaunch script remotely
 # Usage: ./launch-script.sh <script-name>
 
-SCRIPTS_DIR="/home/STRYK"
+# Load PhiLaunch configuration
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/../config/load-config.sh"
+
+SCRIPTS_DIR="${PHILAUNCH_HOME}"
 SCRIPT_NAME="$1"
 
 if [ -z "$SCRIPT_NAME" ]; then

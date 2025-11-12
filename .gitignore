@@ -15,8 +15,8 @@
 !RNG_Scripts/
 !exported_chats/
 !claude-bootstrap/
-!philaunch_gui/
 !config/
+!tools/
 !PROJECT_GUIDELINES.md
 !SSH-QUICK-REFERENCE.md
 
@@ -49,11 +49,14 @@
 .bash_logout
 .profile
 
+# PhiLaunch personal configuration (contains sensitive info)
+config/philaunch.conf
+config/*.backup.*
+PHONE-SHORTCUTS-PERSONAL.md
+logs/
+
 # Exclude workspace submodule
 workspace/
-
-# Configuration (personal settings - DO NOT COMMIT)
-config/philaunch.conf
 
 # Logs
 *.log
