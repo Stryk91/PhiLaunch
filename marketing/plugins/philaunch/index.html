@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhiLaunch | Remote Automation That Just Works</title>
+    <meta name="description" content="SSH orchestration, real-time monitoring, portable configuration. For anyone who wants remote systems to just work—from basic users to advanced hackers.">
+
+    <link rel="stylesheet" href="../../assets/css/phivector-colors.css">
+    <link rel="stylesheet" href="../../assets/css/phivector-main.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="../../index.html" style="color: inherit; text-decoration: none;">
+                    <span class="logo-phi">PHI</span>VECTOR
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html#plugins" class="nav-link">Plugins</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#install" class="nav-link">Install</a>
+                <a href="https://github.com/Stryk91/PhiLaunch" class="nav-link">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">PhiLaunch</h1>
+                <p class="hero-subtitle">Remote automation that just works. SSH orchestration, real-time monitoring, portable configuration.</p>
+                <p class="hero-tagline">For everyone. From basic users to advanced hackers. Adaptive complexity. Zero bullshit.</p>
+                <div class="flex">
+                    <a href="https://github.com/Stryk91/PhiLaunch/releases" class="btn btn-primary">Download</a>
+                    <a href="#install" class="btn btn-secondary">Quick Start</a>
+                    <a href="https://github.com/Stryk91/PhiLaunch" class="btn btn-outline">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="grid grid-2" style="text-align: left;">
+                <div>
+                    <h3 style="font-size: var(--font-21); margin-bottom: var(--space-13); color: var(--neon-cyan);">The Problem</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">• Hardcoded IPs, usernames, paths in scripts</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">• No visibility into remote system status</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">• Manual SSH from phone is painful</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">• No testing infrastructure</p>
+                    <p style="color: var(--text-secondary);">• Credentials scattered everywhere</p>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-21); margin-bottom: var(--space-13); color: var(--fel-green);">The Solution</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">✓ Central config with setup wizard</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">✓ Real-time web dashboard</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">✓ Android SSH via WireGuard VPN</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">✓ Complete CI/CD pipeline</p>
+                    <p style="color: var(--text-secondary);">✓ Secure credential management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="plugins-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Features</h2>
+                <p class="section-description">Practical tools. No promises. Outcomes delivered.</p>
+            </div>
+
+            <div class="plugin-grid">
+                <div class="card">
+                    <h3 class="card-title">Portable Configuration</h3>
+                    <p class="card-description">
+                        Central <code>philaunch.conf</code> eliminates hardcoded values. Setup wizard auto-detects environment.
+                        All scripts load config automatically. Change once, update everywhere.
+                    </p>
+                    <p style="margin-top: var(--space-13); font-family: var(--font-mono); font-size: var(--font-13); color: var(--fel-green);">
+                        $ ./setup.sh<br>
+                        $ source config/load-config.sh
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Real-Time Monitoring Dashboard</h3>
+                    <p class="card-description">
+                        Web-based UI shows CPU, memory, disk, network, tmux sessions, WoW server latency, recent logs.
+                        Auto-refresh every 5 seconds. Dark theme. Mobile-responsive. Pure HTML/CSS/JS.
+                    </p>
+                    <p style="margin-top: var(--space-13); font-family: var(--font-mono); font-size: var(--font-13); color: var(--fel-green);">
+                        $ ./start-dashboard.sh<br>
+                        # http://localhost:8080
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">CI/CD Pipeline</h3>
+                    <p class="card-description">
+                        GitHub Actions with 7 automated checks: ShellCheck, security scan (TruffleHog/GitLeaks), syntax validation,
+                        bats test suite, dependency check, config validation, markdown lint. Pre-commit hooks prevent bad commits.
+                    </p>
+                    <p style="margin-top: var(--space-13); font-family: var(--font-mono); font-size: var(--font-13); color: var(--fel-green);">
+                        $ ./tests/run-tests.sh<br>
+                        $ git commit # hooks run
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Android SSH Integration</h3>
+                    <p class="card-description">
+                        Complete guide for SSH from Android 11 to Windows 11 via WireGuard VPN.
+                        Termux setup, ED25519 keys, router configuration, firewall rules. Phone-to-desktop automation.
+                    </p>
+                    <p style="margin-top: var(--space-13); font-family: var(--font-mono); font-size: var(--font-13); color: var(--fel-green);">
+                        # See docs/ANDROID-SSH-SETUP.md<br>
+                        $ ssh user@192.168.1.X
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Identity Separation System</h3>
+                    <p class="card-description">
+                        Clear role definitions for multi-Claude instances (WEB_CLAUDE, TERMINAL_CLAUDE, VS_CODE_CLAUDE).
+                        Decision matrix prevents task overlap. Session-start prompts ensure identity awareness.
+                    </p>
+                    <p style="margin-top: var(--space-13); font-family: var(--font-mono); font-size: var(--font-13); color: var(--fel-green);">
+                        # claude-bootstrap/IDENTITY-PROFILES.md<br>
+                        # claude-bootstrap/SESSION-START-PROMPTS.md
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Comprehensive Testing</h3>
+                    <p class="card-description">
+                        Bats test framework with unit and integration tests. Test utilities with mocking functions.
+                        Dependency checker validates required tools. Documentation for test writing and troubleshooting.
+                    </p>
+                    <p style="margin-top: var(--space-13); font-family: var(--font-mono); font-size: var(--font-13); color: var(--fel-green);">
+                        $ bats tests/unit/*.bats<br>
+                        $ scripts/check-dependencies.sh
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="plugins-section" style="background: var(--bg-panel);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Who It's For</h2>
+                <p class="section-description">Universal appeal. Adaptive complexity. Basic to advanced.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="card-title">Home Lab Enthusiasts</h3>
+                    <p class="card-description">
+                        Monitor WoW server latency. Control remote desktop from phone. Dashboard shows system health.
+                        Setup wizard handles complexity. Just want it to work.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">DevOps/SRE Teams</h3>
+                    <p class="card-description">
+                        CI/CD pipeline ready. GitHub Actions integrated. Security scanning automated.
+                        Portable config for multi-environment deployments. Production-grade monitoring.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Indie Developers</h3>
+                    <p class="card-description">
+                        Remote work setups simplified. Android SSH for on-the-go access. Multi-device management.
+                        tmux session monitoring. Bash automation with modern testing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="plugins-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Architecture</h2>
+                <p class="section-description">Clean structure. Modular design. Fibonacci organization.</p>
+            </div>
+
+            <div class="grid grid-phi">
+                <div class="card" style="background: var(--bg-card); font-family: var(--font-mono); font-size: var(--font-13);">
+<pre style="color: var(--text-secondary); line-height: 1.6; overflow-x: auto;">
+PhiLaunch/
+├── config/
+│   ├── philaunch.conf           # Central configuration
+│   ├── philaunch.conf.example   # Template
+│   └── load-config.sh           # Config loader
+├── automation/
+│   ├── home-control.sh          # Main automation script
+│   └── phone-shortcuts/         # Android shortcuts
+├── dashboard/
+│   ├── index.html               # Dashboard UI
+│   ├── serve.sh                 # HTTP server
+│   ├── api/*.sh                 # JSON API endpoints
+│   └── static/                  # CSS/JS assets
+├── tests/
+│   ├── unit/                    # Unit tests (bats)
+│   ├── integration/             # Integration tests
+│   └── test_helper.bash         # Test utilities
+├── .github/workflows/
+│   └── ci.yml                   # GitHub Actions CI/CD
+├── .githooks/
+│   └── pre-commit               # Pre-commit validation
+├── docs/
+│   ├── ANDROID-SSH-SETUP.md     # Android SSH guide
+│   ├── TESTING.md               # Testing documentation
+│   └── CI-CD.md                 # CI/CD documentation
+└── setup.sh                     # Interactive setup wizard
+</pre>
+                </div>
+
+                <div>
+                    <div class="card" style="margin-bottom: var(--space-21);">
+                        <h3 class="card-title">Tech Stack</h3>
+                        <p style="margin-bottom: var(--space-8); color: var(--text-secondary);">
+                            <strong style="color: var(--fel-green);">Core:</strong> Bash, Python, SSH, tmux
+                        </p>
+                        <p style="margin-bottom: var(--space-8); color: var(--text-secondary);">
+                            <strong style="color: var(--fel-green);">Dashboard:</strong> HTML/CSS/JS, Python HTTP server
+                        </p>
+                        <p style="margin-bottom: var(--space-8); color: var(--text-secondary);">
+                            <strong style="color: var(--fel-green);">Testing:</strong> Bats, ShellCheck, TruffleHog, GitLeaks
+                        </p>
+                        <p style="margin-bottom: var(--space-8); color: var(--text-secondary);">
+                            <strong style="color: var(--fel-green);">Network:</strong> WireGuard VPN, SSH keys, iptables
+                        </p>
+                        <p style="color: var(--text-secondary);">
+                            <strong style="color: var(--fel-green);">CI/CD:</strong> GitHub Actions, pre-commit hooks
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Deployment</h3>
+                        <p class="card-description">
+                            Works on Linux, macOS, WSL, Termux (Android). Minimal dependencies—standard tools only.
+                            Setup wizard handles platform detection. Portable across environments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation -->
+    <section id="install" class="plugins-section" style="background: var(--bg-panel);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quick Start</h2>
+                <p class="section-description">Clone. Run setup. Done.</p>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card" style="background: var(--black-panel);">
+                    <h3 class="card-title">Installation</h3>
+                    <pre style="background: var(--black-lifted); padding: var(--space-21); border-radius: var(--radius-5); overflow-x: auto; font-family: var(--font-mono); font-size: var(--font-13); color: var(--fel-green); line-height: 1.6;">
+# Clone repository
+git clone https://github.com/Stryk91/PhiLaunch.git
+cd PhiLaunch
+
+# Run setup wizard
+./setup.sh
+
+# Start dashboard
+./start-dashboard.sh
+
+# Access dashboard
+# http://localhost:8080
+                    </pre>
+                </div>
+
+                <div class="card" style="background: var(--black-panel);">
+                    <h3 class="card-title">Configuration</h3>
+                    <pre style="background: var(--black-lifted); padding: var(--space-21); border-radius: var(--radius-5); overflow-x: auto; font-family: var(--font-mono); font-size: var(--font-13); color: var(--neon-cyan); line-height: 1.6;">
+# Manual config (optional)
+cp config/philaunch.conf.example \\
+   config/philaunch.conf
+
+# Edit configuration
+nano config/philaunch.conf
+
+# Validate config
+source config/load-config.sh
+
+# Run tests
+./tests/run-tests.sh
+                    </pre>
+                </div>
+            </div>
+
+            <div style="margin-top: var(--space-55); text-align: center;">
+                <h3 style="font-size: var(--font-21); margin-bottom: var(--space-21);">Requirements</h3>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <p style="font-size: var(--font-13); color: var(--text-secondary);">
+                            <strong style="color: var(--fel-green);">Required:</strong><br>
+                            Bash 4+, Git, SSH, Python 3
+                        </p>
+                    </div>
+                    <div class="card">
+                        <p style="font-size: var(--font-13); color: var(--text-secondary);">
+                            <strong style="color: var(--neon-cyan);">Optional:</strong><br>
+                            tmux, jq, bats, ShellCheck
+                        </p>
+                    </div>
+                    <div class="card">
+                        <p style="font-size: var(--font-13); color: var(--text-secondary);">
+                            <strong style="color: var(--off-teal);">Platforms:</strong><br>
+                            Linux, macOS, WSL, Termux
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation -->
+    <section class="plugins-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Documentation</h2>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="card-title">ANDROID-SSH-SETUP.md</h3>
+                    <p class="card-description">
+                        Complete guide for Android 11 to Windows 11 SSH via WireGuard VPN.
+                        10 sections. Zero fluff. Direct execution steps.
+                    </p>
+                    <a href="https://github.com/Stryk91/PhiLaunch/blob/main/docs/ANDROID-SSH-SETUP.md" class="btn btn-outline" style="margin-top: var(--space-13);">Read Guide</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">TESTING.md</h3>
+                    <p class="card-description">
+                        Complete testing guide with bats examples. Test writing, running, troubleshooting.
+                        Unit and integration test patterns.
+                    </p>
+                    <a href="https://github.com/Stryk91/PhiLaunch/blob/main/docs/TESTING.md" class="btn btn-outline" style="margin-top: var(--space-13);">Read Guide</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">CI-CD.md</h3>
+                    <p class="card-description">
+                        CI/CD workflow documentation. Job descriptions, fixing failures, local testing.
+                        GitHub Actions configuration explained.
+                    </p>
+                    <a href="https://github.com/Stryk91/PhiLaunch/blob/main/docs/CI-CD.md" class="btn btn-outline" style="margin-top: var(--space-13);">Read Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="plugins-section" style="background: linear-gradient(135deg, var(--pine-deeper) 0%, var(--black-panel) 100%);">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Open Source</h2>
+            <p class="section-description" style="margin-bottom: var(--space-34);">
+                PhiLaunch is open source. Contributions welcome. Issues tracked on GitHub.
+            </p>
+            <div class="flex flex-center">
+                <a href="https://github.com/Stryk91/PhiLaunch" class="btn btn-primary">View on GitHub</a>
+                <a href="https://github.com/Stryk91/PhiLaunch/issues" class="btn btn-outline">Report Issue</a>
+                <a href="https://github.com/Stryk91/PhiLaunch/blob/main/CONTRIBUTING.md" class="btn btn-outline">Contributing Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">PhiVector / PhiLaunch</div>
+                    <p class="footer-description">
+                        Remote automation that just works. Part of the PhiVector plugin ecosystem.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="footer-title">PhiLaunch</div>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#install">Installation</a></li>
+                        <li><a href="https://github.com/Stryk91/PhiLaunch">GitHub</a></li>
+                        <li><a href="https://github.com/Stryk91/PhiLaunch/releases">Releases</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="footer-title">Documentation</div>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/Stryk91/PhiLaunch/blob/main/docs/ANDROID-SSH-SETUP.md">Android SSH Setup</a></li>
+                        <li><a href="https://github.com/Stryk91/PhiLaunch/blob/main/docs/TESTING.md">Testing Guide</a></li>
+                        <li><a href="https://github.com/Stryk91/PhiLaunch/blob/main/docs/CI-CD.md">CI/CD Guide</a></li>
+                        <li><a href="https://github.com/Stryk91/PhiLaunch/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="footer-title">PhiVector</div>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Ecosystem</a></li>
+                        <li><a href="../../index.html#plugins">All Plugins</a></li>
+                        <li><a href="../../index.html#docs">Documentation</a></li>
+                        <li><a href="../../index.html#download">Download</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 PhiVector. φ = 1.618 | Part of the PhiVector ecosystem.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/phivector-main.js"></script>
+</body>
+</html>

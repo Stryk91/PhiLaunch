@@ -28,6 +28,7 @@
 !scripts/
 !docs/
 !dashboard/
+!marketing/
 !.github/
 !.githooks/
 !.markdownlint.json
