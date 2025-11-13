@@ -76,3 +76,6 @@ workspace/
 # Logs
 *.log
 *.out
+
+# Dashboard runtime files (auto-generated)
+dashboard/api/*.json
