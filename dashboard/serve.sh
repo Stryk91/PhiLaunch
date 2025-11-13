@@ -23,7 +23,7 @@ echo -e "${BLUE}╚════════════════════�
 echo ""
 
 # Check if port is available
-if lsof -Pi :$PORT -sTCP:LISTEN -t >/dev/null 2>&1; then
+if lsof -Pi :"$PORT" -sTCP:LISTEN -t >/dev/null 2>&1; then
     echo -e "${YELLOW}⚠ Port $PORT is already in use${NC}"
     echo "  Kill the process or use a different port:"
     echo "  DASHBOARD_PORT=8081 ./serve.sh"
@@ -85,9 +85,9 @@ echo ""
 
 # Start Python HTTP server
 if command -v python3 &> /dev/null; then
-    python3 -m http.server $PORT --bind 0.0.0.0
+    python3 -m http.server "$PORT" --bind 0.0.0.0
 elif command -v python &> /dev/null; then
-    python -m SimpleHTTPServer $PORT
+    python -m SimpleHTTPServer "$PORT"
 else
     echo -e "${YELLOW}⚠ Python not found${NC}"
     echo "  Install Python to run the dashboard server"

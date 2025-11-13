@@ -40,6 +40,6 @@ EOF
 done <<< "$SESSIONS"
 
 echo '],'
-echo '"count": '$(echo "$SESSIONS" | grep -c '^')','
-echo '"timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"'
+echo '"count": '"$(echo "$SESSIONS" | grep -c '^')"','
+echo '"timestamp": "'"$(date -u +%Y-%m-%dT%H:%M:%SZ)"'"'
 echo '}'

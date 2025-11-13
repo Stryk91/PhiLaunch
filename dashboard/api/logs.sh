@@ -45,5 +45,5 @@ EOF
 fi
 
 echo '],'
-echo '"timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"'
+echo '"timestamp": "'"$(date -u +%Y-%m-%dT%H:%M:%SZ)"'"'
 echo '}'
