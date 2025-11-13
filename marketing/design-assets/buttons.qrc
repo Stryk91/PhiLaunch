@@ -1,0 +1,24 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/buttons">
+        <!-- Ultra-smooth tactical buttons with unified green theme -->
+        <file>retrieve_v2_ultra_smooth.png</file>
+        <file>copy_v2_ultra_smooth.png</file>
+        <file>list_v2_ultra_smooth.png</file>
+        <file>lock_v2_ultra_smooth.png</file>
+        <file>unlock_v2_ultra_smooth.png</file>
+        <file>generate_v2_ultra_smooth.png</file>
+        <file>save_v2_ultra_smooth.png</file>
+        <file>set_master_v2_ultra_smooth.png</file>
+        <file>set_vault_v2_ultra_smooth.png</file>
+        <file>copy_path_v2_ultra_smooth.png</file>
+    </qresource>
+
+    <qresource prefix="/ui">
+        <!-- UI Elements: panels, text inputs, title -->
+        <file>list_panel_ultra_smooth.png</file>
+        <file>text_input_long_ultra_smooth.png</file>
+        <file>text_input_short_arrows_ultra_smooth.png</file>
+        <file>title_password_vault_ultra_smooth.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220" height="80" viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Metallic Angular Button - LIST - Enhanced Style</title>
+  <desc id="desc">A sleek metallic button with enumeration themed circuit patterns and accents.</desc>
+
+  <defs>
+    <!-- Chrome frame gradient - Polished Steel -->
+    <linearGradient id="chromeGreen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#050505"/>
+      <stop offset="5%"  stop-color="#0d0d0d"/>
+      <stop offset="10%" stop-color="#1f1f1f"/>
+      <stop offset="15%" stop-color="#3a3a3a"/>
+      <stop offset="20%" stop-color="#5a5a5a"/>
+      <stop offset="25%" stop-color="#8a8a8a"/>
+      <stop offset="30%" stop-color="#c0c0c0"/>
+      <stop offset="35%" stop-color="#e8e8e8"/>
+      <stop offset="40%" stop-color="#ffffff"/>
+      <stop offset="42%" stop-color="#ffffff"/>
+      <stop offset="45%" stop-color="#f8f8f8"/>
+      <stop offset="48%" stop-color="#e0e0e0"/>
+      <stop offset="51%" stop-color="#ffffff"/>
+      <stop offset="54%" stop-color="#fafafa"/>
+      <stop offset="57%" stop-color="#e5e5e5"/>
+      <stop offset="62%" stop-color="#b8b8b8"/>
+      <stop offset="67%" stop-color="#888888"/>
+      <stop offset="72%" stop-color="#5a5a5a"/>
+      <stop offset="77%" stop-color="#353535"/>
+      <stop offset="82%" stop-color="#1f1f1f"/>
+      <stop offset="87%" stop-color="#121212"/>
+      <stop offset="92%" stop-color="#0d0d0d"/>
+      <stop offset="97%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+
+    <!-- Chrome stroke shimmer -->
+    <linearGradient id="chromeStroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c8c8c8"/>
+      <stop offset="15%" stop-color="#e8e8e8"/>
+      <stop offset="25%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#f5f5f5"/>
+      <stop offset="48%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="52%" stop-color="#ffffff"/>
+      <stop offset="65%" stop-color="#f0f0f0"/>
+      <stop offset="75%" stop-color="#ffffff"/>
+      <stop offset="85%" stop-color="#e0e0e0"/>
+      <stop offset="100%" stop-color="#b8b8b8"/>
+    </linearGradient>
+
+    <!-- Inner panel with color hint -->
+    <linearGradient id="innerPanel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#050a06"/>
+      <stop offset="22%"  stop-color="#050a06"/>
+      <stop offset="45%"  stop-color="#050a06"/>
+      <stop offset="60%"  stop-color="#050a06"/>
+      <stop offset="100%" stop-color="#050a06"/>
+    </linearGradient>
+
+    <!-- Top gloss with color tint -->
+    <linearGradient id="panelSheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#39ff14" stop-opacity="0.18"/>
+      <stop offset="15%"  stop-color="#39ff14" stop-opacity="0.12"/>
+      <stop offset="38%"  stop-color="#6fff4a" stop-opacity="0.05"/>
+      <stop offset="75%"  stop-color="#6fff4a" stop-opacity="0.01"/>
+      <stop offset="100%" stop-color="#6fff4a" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Colored rim light -->
+    <linearGradient id="greenRim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#6fff4a" stop-opacity="0.6"/>
+      <stop offset="4%"   stop-color="#6fff4a" stop-opacity="0.5"/>
+      <stop offset="18%"  stop-color="#6fff4a" stop-opacity="0.0"/>
+      <stop offset="45%"  stop-color="#39ff14" stop-opacity="0.5"/>
+      <stop offset="50%"  stop-color="#39ff14" stop-opacity="0.9"/>
+      <stop offset="55%"  stop-color="#39ff14" stop-opacity="0.5"/>
+      <stop offset="82%"  stop-color="#6fff4a" stop-opacity="0.0"/>
+      <stop offset="96%"  stop-color="#6fff4a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#6fff4a" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Colored text gradient -->
+    <linearGradient id="textNeon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="20%"  stop-color="#39ff14"/>
+      <stop offset="50%"  stop-color="#39ff14"/>
+      <stop offset="80%"  stop-color="#6fff4a"/>
+      <stop offset="100%" stop-color="#6fff4a"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="btnShadow" x="-30%" y="-50%" width="160%" height="220%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+
+    <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4.4" result="blur"/>
+      <feComposite in="blur" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="innerShadow"/>
+      <feFlood flood-color="#6fff4a" flood-opacity="0.35" result="flood"/>
+      <feComposite in="flood" in2="innerShadow" operator="in" result="coloredInner"/>
+      <feMerge>
+        <feMergeNode in="coloredInner"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="textGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="-2" stdDeviation="1" flood-color="#ffffff" flood-opacity="0.15"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#000000" flood-opacity="0.4"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="3.6" flood-color="#6fff4a" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#39ff14" flood-opacity="0.45"/>
+    </filter>
+
+    <filter id="subtleUnderglow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="16" flood-color="#6fff4a" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#39ff14" flood-opacity="0.12"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#39ff14" flood-opacity="0.15"/>
+    </filter>
+
+    <filter id="outerAura" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="9.6" flood-color="#6fff4a" flood-opacity="0.12"/>
+    </filter>
+
+    <filter id="ledGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#39ff14" flood-opacity="0.8"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ffffff" flood-opacity="0.6"/>
+    </filter>
+
+    <filter id="circuitGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#6fff4a" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#39ff14" flood-opacity="0.8"/>
+    </filter>
+
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+      <feOffset in="blur" dx="0" dy="6" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.6" result="offsetColor"/>
+      <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"/>
+      <feComposite in="SourceGraphic" in2="offsetBlur" operator="over"/>
+    </filter>
+
+    <!-- Beveled corners -->
+    <linearGradient id="bevelTopLeft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8e8e8e" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#1a1a1a" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <linearGradient id="bevelTopRight" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8e8e8e" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#1a1a1a" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <linearGradient id="bevelBottomLeft" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#2a2a2a" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <linearGradient id="bevelBottomRight" x1="1" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#2a2a2a" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Button group -->
+  <g transform="translate(80,48)" filter="url(#subtleUnderglow)">
+    <g filter="url(#outerAura)">
+      <!-- Outer angular frame -->
+      <path d="M40 0 L680 0 L720 40 L720 184 L680 224 L40 224 L0 184 L0 40 Z"
+            fill="url(#chromeGreen)"
+            stroke="url(#chromeStroke)"
+            stroke-width="8.8"
+            filter="url(#btnShadow)"
+            shape-rendering="geometricPrecision"/>
+
+      <!-- Sharp specular highlights -->
+      <path d="M50 4 L670 4 L710 44 L680 20 L40 20 L10 44 Z" fill="#ffffff" opacity="0.4"/>
+      <path d="M60 10 L660 10 L690 32 L660 24 L60 24 L30 32 Z" fill="#ffffff" opacity="0.2"/>
+      <path d="M50 220 L670 220 L710 180 L680 204 L40 204 L10 180 Z" fill="#ffffff" opacity="0.15"/>
+      <path d="M4 50 L4 174 L12 180 L12 44 Z" fill="#ffffff" opacity="0.25"/>
+      <path d="M716 50 L716 174 L708 180 L708 44 Z" fill="#ffffff" opacity="0.25"/>
+
+      <!-- Inner panel -->
+      <path d="M56 16 L664 16 L704 56 L704 168 L664 208 L56 208 L16 168 L16 56 Z"
+            fill="url(#innerPanel)"
+            stroke="#6fff4a" stroke-opacity="0.26" stroke-width="3.6"
+            filter="url(#innerGlow)"/>
+
+      <path d="M56 16 L664 16 L704 56 L704 168 L664 208 L56 208 L16 168 L16 56 Z"
+            fill="none" filter="url(#innerShadow)"/>
+
+      <!-- Top gloss -->
+      <path d="M56 16 L664 16 L704 56 L704 112 L16 112 L16 56 Z" fill="url(#panelSheen)"/>
+
+      <!-- Beveled corners -->
+      <polygon points="40,0 80,0 56,16" fill="url(#bevelTopLeft)"/>
+      <polygon points="640,0 680,0 664,16" fill="url(#bevelTopRight)"/>
+      <polygon points="40,224 56,208 80,224" fill="url(#bevelBottomLeft)"/>
+      <polygon points="640,224 664,208 680,224" fill="url(#bevelBottomRight)"/>
+
+      <!-- Top rim accent -->
+      <path d="M48 6 L672 6 L712 46" fill="none" stroke="url(#greenRim)" stroke-width="4.8" stroke-linecap="round" opacity="0.7"/>
+      <path d="M8 178 L48 218 L672 218" fill="none" stroke="url(#greenRim)" stroke-width="4.8" stroke-linecap="round" opacity="0.5"/>
+
+      <!-- Micro notches -->
+      <g stroke="#39ff14" stroke-opacity="0.45" stroke-width="3.6">
+        <line x1="136" y1="3.2" x2="184" y2="3.2"/>
+        <line x1="536" y1="220.8" x2="584" y2="220.8"/>
+      </g>
+
+      
+      <g stroke="#6fff4a" stroke-width="0.8" fill="none" filter="url(#circuitGlow)">
+        <line x1="100" y1="70" x2="200" y2="70" opacity="0.45"/>
+        <line x1="100" y1="85" x2="180" y2="85" opacity="0.4"/>
+        <line x1="100" y1="100" x2="190" y2="100" opacity="0.4"/>
+        <line x1="100" y1="115" x2="170" y2="115" opacity="0.35"/>
+        <line x1="100" y1="130" x2="185" y2="130" opacity="0.35"/>
+        <line x1="100" y1="145" x2="175" y2="145" opacity="0.35"/>
+        <line x1="520" y1="79" x2="620" y2="79" opacity="0.45"/>
+        <line x1="540" y1="94" x2="620" y2="94" opacity="0.4"/>
+        <line x1="530" y1="109" x2="620" y2="109" opacity="0.4"/>
+        <line x1="550" y1="124" x2="620" y2="124" opacity="0.35"/>
+        <line x1="535" y1="139" x2="620" y2="139" opacity="0.35"/>
+        <line x1="545" y1="154" x2="620" y2="154" opacity="0.35"/>
+        <circle cx="90" cy="70" r="2" fill="#6fff4a" opacity="0.6"/>
+        <circle cx="90" cy="85" r="2" fill="#6fff4a" opacity="0.6"/>
+        <circle cx="90" cy="100" r="2" fill="#6fff4a" opacity="0.6"/>
+        <circle cx="630" cy="79" r="2" fill="#6fff4a" opacity="0.6"/>
+        <circle cx="630" cy="94" r="2" fill="#6fff4a" opacity="0.6"/>
+        <circle cx="630" cy="109" r="2" fill="#6fff4a" opacity="0.6"/>
+      </g>
+
+      
+      <g stroke="#39ff14" stroke-width="5" fill="none" opacity="1.0" filter="url(#circuitGlow)">
+        <line x1="52" y1="52" x2="52" y2="72"/>
+        <line x1="48" y1="62" x2="72" y2="62"/>
+        <line x1="668" y1="52" x2="668" y2="72"/>
+        <line x1="648" y1="62" x2="692" y2="62"/>
+        <line x1="52" y1="172" x2="52" y2="152"/>
+        <line x1="48" y1="162" x2="72" y2="162"/>
+        <line x1="668" y1="172" x2="668" y2="152"/>
+        <line x1="648" y1="162" x2="692" y2="162"/>
+      </g>
+
+      
+      <g filter="url(#ledGlow)">
+        <circle cx="50" cy="60" r="4" fill="#6fff4a"/>
+        <circle cx="50" cy="75" r="4" fill="#6fff4a" opacity="0.8"/>
+        <circle cx="50" cy="90" r="4" fill="#6fff4a" opacity="0.6"/>
+        <circle cx="50" cy="105" r="4" fill="#6fff4a" opacity="0.4"/>
+        <circle cx="670" cy="119" r="4" fill="#6fff4a" opacity="0.4"/>
+        <circle cx="670" cy="134" r="4" fill="#6fff4a" opacity="0.6"/>
+        <circle cx="670" cy="149" r="4" fill="#6fff4a" opacity="0.8"/>
+        <circle cx="670" cy="164" r="4" fill="#6fff4a"/>
+      </g>
+
+      <!-- Label -->
+      <text x="360" y="140" text-anchor="middle"
+            fill="url(#textNeon)"
+            filter="url(#textGlow)"
+            font-family="Xolonium, Orbitron, 'Bank Gothic', Eurostile, system-ui, sans-serif"
+            font-size="64" letter-spacing="6.4" font-weight="800">
+        LIST
+      </text>
+    </g>
+  </g>
+</svg>

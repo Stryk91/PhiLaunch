@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="50" viewBox="0 0 2000 200" xmlns="http://www.w3.org/2000/svg">
+  <title>Long Text Input Field</title>
+  <desc>Tactical-style text input field with chrome frame and green accents</desc>
+
+  <defs>
+    <!-- Chrome frame gradient -->
+    <linearGradient id="chromeFrame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="10%" stop-color="#1f1f1f"/>
+      <stop offset="20%" stop-color="#5a5a5a"/>
+      <stop offset="30%" stop-color="#c0c0c0"/>
+      <stop offset="40%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#c0c0c0"/>
+      <stop offset="70%" stop-color="#5a5a5a"/>
+      <stop offset="80%" stop-color="#1f1f1f"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+
+    <!-- Chrome stroke -->
+    <linearGradient id="chromeStroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c8c8c8"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#b8b8b8"/>
+    </linearGradient>
+
+    <!-- Inner field - transparent for text -->
+    <linearGradient id="innerField" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0f0a" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#050a06" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#020302" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Green border gradient -->
+    <linearGradient id="greenBorder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#6fff4a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <!-- Shadow -->
+    <filter id="inputShadow" x="-30%" y="-50%" width="160%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Inner glow -->
+    <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feComposite in="blur" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="innerShadow"/>
+      <feFlood flood-color="#39ff14" flood-opacity="0.2" result="flood"/>
+      <feComposite in="flood" in2="innerShadow" operator="in" result="coloredInner"/>
+      <feMerge>
+        <feMergeNode in="coloredInner"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Circuit glow -->
+    <filter id="circuitGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#39ff14" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Input field group -->
+  <g filter="url(#inputShadow)">
+    <!-- Outer chrome frame -->
+    <rect x="10" y="10" width="1980" height="180" rx="8" ry="8"
+          fill="url(#chromeFrame)"
+          stroke="url(#chromeStroke)"
+          stroke-width="4"/>
+
+    <!-- Specular highlight -->
+    <rect x="15" y="13" width="1970" height="20" rx="5" ry="5"
+          fill="#ffffff" opacity="0.3"/>
+
+    <!-- Inner field -->
+    <rect x="22" y="22" width="1956" height="156" rx="5" ry="5"
+          fill="url(#innerField)"
+          stroke="url(#greenBorder)" stroke-width="2"
+          filter="url(#innerGlow)"/>
+
+    <!-- Corner accent brackets -->
+    <g stroke="#6fff4a" stroke-width="2" fill="none" opacity="0.8" filter="url(#circuitGlow)">
+      <!-- Left bracket -->
+      <path d="M 32 35 L 32 50 M 32 35 L 47 35"/>
+      <path d="M 32 165 L 32 150 M 32 165 L 47 165"/>
+      <!-- Right bracket -->
+      <path d="M 1968 35 L 1968 50 M 1968 35 L 1953 35"/>
+      <path d="M 1968 165 L 1968 150 M 1968 165 L 1953 165"/>
+    </g>
+
+    <!-- Small circuit traces -->
+    <g stroke="#39ff14" stroke-width="0.6" fill="none" opacity="0.4" filter="url(#circuitGlow)">
+      <path d="M 50 30 L 70 30 L 75 35"/>
+      <path d="M 1950 30 L 1930 30 L 1925 35"/>
+      <circle cx="50" cy="30" r="1" fill="#39ff14"/>
+      <circle cx="1950" cy="30" r="1" fill="#39ff14"/>
+    </g>
+
+    <!-- LED indicator dots (left) -->
+    <circle cx="35" cy="100" r="2.5" fill="#39ff14" opacity="0.8" filter="url(#circuitGlow)"/>
+
+    <!-- LED indicator dots (right) -->
+    <circle cx="1965" cy="100" r="2.5" fill="#39ff14" opacity="0.8" filter="url(#circuitGlow)"/>
+  </g>
+</svg>

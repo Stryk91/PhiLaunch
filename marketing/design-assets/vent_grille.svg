@@ -1,0 +1,25 @@
+<!-- vent-grille.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="320" viewBox="0 0 128 80">
+  <defs>
+    <linearGradient id="bgDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a0c10"/>
+      <stop offset="1" stop-color="#14181e"/>
+    </linearGradient>
+    <linearGradient id="slat" x1="0" y1="0" x2="0" y2="1">
+      <!-- beveled slat -->
+      <stop offset="0" stop-color="#07090c"/>
+      <stop offset="0.25" stop-color="#2a3037"/>
+      <stop offset="0.5" stop-color="#8f98a3"/>
+      <stop offset="0.75" stop-color="#2a3037"/>
+      <stop offset="1" stop-color="#07090c"/>
+    </linearGradient>
+    <pattern id="slotPattern" patternUnits="userSpaceOnUse" width="32" height="20">
+      <!-- Slat height ~14, gap ~6 -->
+      <rect x="0" y="3" width="32" height="14" rx="2" fill="url(#slat)"/>
+      <!-- add thin shadow line under slat -->
+      <rect x="0" y="17.5" width="32" height="1.2" fill="#000" opacity="0.35"/>
+    </pattern>
+  </defs>
+  <rect width="128" height="80" fill="url(#bgDark)"/>
+  <rect width="128" height="80" fill="url(#slotPattern)"/>
+</svg>

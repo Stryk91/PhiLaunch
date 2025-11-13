@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="160" viewBox="0 0 800 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Metallic Folder Icon - SHOW PATH - STRYKER Green</title>
+  <desc id="desc">A sleek metallic folder icon with SHOW PATH label and neon green accents.</desc>
+
+  <defs>
+    <!-- Chrome gradient for folder -->
+    <linearGradient id="chromeFolder" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0b0b0b"/>
+      <stop offset="8%"  stop-color="#1a1a1a"/>
+      <stop offset="15%" stop-color="#2b2b2b"/>
+      <stop offset="25%" stop-color="#4a4a4a"/>
+      <stop offset="35%" stop-color="#6e6e6e"/>
+      <stop offset="45%" stop-color="#a5a5a5"/>
+      <stop offset="50%" stop-color="#dcdcdc"/>
+      <stop offset="55%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#e8e8e8"/>
+      <stop offset="65%" stop-color="#c7c7c7"/>
+      <stop offset="75%" stop-color="#7a7a7a"/>
+      <stop offset="85%" stop-color="#3a3a3a"/>
+      <stop offset="92%" stop-color="#161616"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+
+    <!-- Chrome stroke -->
+    <linearGradient id="chromeStroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8e8e8"/>
+      <stop offset="25%" stop-color="#f5f5f5"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="75%" stop-color="#e0e0e0"/>
+      <stop offset="100%" stop-color="#bbbbbb"/>
+    </linearGradient>
+
+    <!-- Dark inner panel -->
+    <linearGradient id="innerDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#060806"/>
+      <stop offset="30%"  stop-color="#0a100a"/>
+      <stop offset="70%"  stop-color="#050a06"/>
+      <stop offset="100%" stop-color="#020302"/>
+    </linearGradient>
+
+    <!-- Folder tab gradient -->
+    <linearGradient id="folderTab" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#6e6e6e"/>
+      <stop offset="30%" stop-color="#a5a5a5"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#c7c7c7"/>
+      <stop offset="100%" stop-color="#4a4a4a"/>
+    </linearGradient>
+
+    <!-- Neon green text gradient -->
+    <linearGradient id="textNeon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#dfffde"/>
+      <stop offset="20%"  stop-color="#d0ffd0"/>
+      <stop offset="40%"  stop-color="#baffb5"/>
+      <stop offset="50%"  stop-color="#a0ff90"/>
+      <stop offset="60%"  stop-color="#7dff6b"/>
+      <stop offset="80%"  stop-color="#58ff3f"/>
+      <stop offset="100%" stop-color="#39ff14"/>
+    </linearGradient>
+
+    <!-- Top gloss with green tint -->
+    <linearGradient id="folderSheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#cffff0" stop-opacity="0.18"/>
+      <stop offset="40%"  stop-color="#b6ffd1" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="folderShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+
+    <filter id="folderGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#39ff14" flood-opacity="0.25"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#39ff14" flood-opacity="0.35"/>
+    </filter>
+
+    <filter id="textGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#39ff14" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ffffff" flood-opacity="0.5"/>
+    </filter>
+
+    <filter id="innerGlowFolder" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feComposite in="blur" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="innerShadow"/>
+      <feFlood flood-color="#39ff14" flood-opacity="0.35" result="flood"/>
+      <feComposite in="flood" in2="innerShadow" operator="in" result="coloredInner"/>
+      <feMerge>
+        <feMergeNode in="coloredInner"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g transform="translate(50, 80)" filter="url(#folderGlow)">
+    <!-- Main folder body with angular design -->
+    <g filter="url(#folderShadow)">
+      <!-- Folder back -->
+      <path d="M 20 120
+               L 20 480
+               L 10 500
+               L 10 560
+               L 30 580
+               L 670 580
+               L 690 560
+               L 690 500
+               L 680 480
+               L 680 120
+               Z"
+            fill="url(#chromeFolder)"
+            stroke="url(#chromeStroke)"
+            stroke-width="6"/>
+
+      <!-- Folder tab (angled) -->
+      <path d="M 20 120
+               L 20 80
+               L 40 60
+               L 280 60
+               L 320 80
+               L 320 120
+               Z"
+            fill="url(#folderTab)"
+            stroke="url(#chromeStroke)"
+            stroke-width="6"/>
+
+      <!-- Tab inner dark -->
+      <path d="M 40 120
+               L 40 90
+               L 55 80
+               L 265 80
+               L 300 95
+               L 300 120
+               Z"
+            fill="url(#innerDark)"
+            opacity="0.7"/>
+    </g>
+
+    <!-- Inner folder panel -->
+    <rect x="50" y="140" width="600" height="420" rx="8"
+          fill="url(#innerDark)"
+          filter="url(#innerGlowFolder)"/>
+
+    <!-- Top gloss overlay -->
+    <path d="M 50 140
+             L 650 140
+             L 650 320
+             L 50 320
+             Z"
+          fill="url(#folderSheen)"/>
+
+    <!-- Corner accents -->
+    <g stroke="#39ff14" stroke-width="4" opacity="0.5">
+      <line x1="25" y1="125" x2="60" y2="125"/>
+      <line x1="640" y1="125" x2="675" y2="125"/>
+    </g>
+
+    <!-- Bottom notches -->
+    <g stroke="#9dff9a" stroke-width="4" opacity="0.5">
+      <line x1="60" y1="575" x2="100" y2="575"/>
+      <line x1="600" y1="575" x2="640" y2="575"/>
+    </g>
+
+    <!-- Green edge glow -->
+    <rect x="50" y="140" width="600" height="420" rx="8"
+          fill="none"
+          stroke="#6cff78"
+          stroke-width="3"
+          opacity="0.3"/>
+
+    <!-- SHOW PATH text -->
+    <text x="350" y="360" text-anchor="middle"
+          fill="url(#textNeon)"
+          filter="url(#textGlow)"
+          font-family="Xolonium, Orbitron, 'Bank Gothic', Eurostile, system-ui, sans-serif"
+          font-size="56" letter-spacing="5.6" font-weight="800">
+      SHOW PATH
+    </text>
+
+    <!-- Decorative corner brackets -->
+    <g stroke="#39ff14" stroke-width="3" fill="none" opacity="0.6">
+      <!-- Top left bracket -->
+      <path d="M 60 150 L 60 170 M 60 150 L 80 150"/>
+      <!-- Top right bracket -->
+      <path d="M 640 150 L 640 170 M 640 150 L 620 150"/>
+      <!-- Bottom left bracket -->
+      <path d="M 60 550 L 60 530 M 60 550 L 80 550"/>
+      <!-- Bottom right bracket -->
+      <path d="M 640 550 L 640 530 M 640 550 L 620 550"/>
+    </g>
+
+    <!-- Mini LED indicators (like folder status lights) -->
+    <g filter="url(#textGlow)">
+      <circle cx="80" cy="200" r="6" fill="#39ff14"/>
+      <circle cx="110" cy="200" r="6" fill="#39ff14" opacity="0.6"/>
+      <circle cx="140" cy="200" r="6" fill="#39ff14" opacity="0.3"/>
+    </g>
+  </g>
+</svg>

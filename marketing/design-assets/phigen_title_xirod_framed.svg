@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="900" height="160" viewBox="0 0 900 160">
+
+  <defs>
+    <!-- Chrome frame gradient (from text input) -->
+    <linearGradient id="chromeFrame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="10%" stop-color="#1f1f1f"/>
+      <stop offset="20%" stop-color="#5a5a5a"/>
+      <stop offset="30%" stop-color="#c0c0c0"/>
+      <stop offset="40%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#c0c0c0"/>
+      <stop offset="70%" stop-color="#5a5a5a"/>
+      <stop offset="80%" stop-color="#1f1f1f"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+
+    <!-- Chrome stroke -->
+    <linearGradient id="chromeStroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c8c8c8"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#b8b8b8"/>
+    </linearGradient>
+
+    <!-- Inner field - dark background -->
+    <linearGradient id="innerField" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0f0a" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#050a06" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#020302" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Circuit board pattern -->
+    <pattern id="circuitPattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <rect width="80" height="80" fill="#0a0a0a"/>
+      <!-- Horizontal traces -->
+      <line x1="0" y1="20" x2="50" y2="20" stroke="#39ff14" stroke-width="0.5" opacity="0.15"/>
+      <line x1="30" y1="40" x2="80" y2="40" stroke="#39ff14" stroke-width="0.5" opacity="0.15"/>
+      <line x1="10" y1="60" x2="70" y2="60" stroke="#39ff14" stroke-width="0.5" opacity="0.15"/>
+      <!-- Vertical traces -->
+      <line x1="25" y1="0" x2="25" y2="35" stroke="#39ff14" stroke-width="0.5" opacity="0.15"/>
+      <line x1="50" y1="15" x2="50" y2="80" stroke="#39ff14" stroke-width="0.5" opacity="0.15"/>
+      <line x1="65" y1="0" x2="65" y2="45" stroke="#39ff14" stroke-width="0.5" opacity="0.15"/>
+      <!-- Connection nodes -->
+      <circle cx="25" cy="20" r="1" fill="#39ff14" opacity="0.2"/>
+      <circle cx="50" cy="40" r="1" fill="#39ff14" opacity="0.2"/>
+      <circle cx="65" cy="40" r="1" fill="#39ff14" opacity="0.2"/>
+      <circle cx="50" cy="20" r="0.8" fill="#39ff14" opacity="0.15"/>
+      <circle cx="25" cy="35" r="0.8" fill="#39ff14" opacity="0.15"/>
+      <!-- Small pads -->
+      <rect x="48.5" y="18.5" width="3" height="3" fill="none" stroke="#39ff14" stroke-width="0.4" opacity="0.12"/>
+      <rect x="23.5" y="33.5" width="3" height="3" fill="none" stroke="#39ff14" stroke-width="0.4" opacity="0.12"/>
+
+      <!-- Microscopic text labels along circuit traces -->
+      <!-- AES-256 along horizontal trace -->
+      <text x="2" y="19" font-family="Courier New, monospace" font-size="2.5" fill="#39ff14" opacity="0.3" letter-spacing="0.5">AES-256</text>
+
+      <!-- Zero-Trust along vertical trace -->
+      <text x="24" y="8" font-family="Courier New, monospace" font-size="2.2" fill="#39ff14" opacity="0.3" letter-spacing="0.3" writing-mode="tb">Zero-Trust</text>
+
+      <!-- Mil-Spec along horizontal trace -->
+      <text x="32" y="39" font-family="Courier New, monospace" font-size="2.5" fill="#39ff14" opacity="0.3" letter-spacing="0.5">Mil-Spec</text>
+
+      <!-- Additional AES-256 along vertical trace -->
+      <text x="49" y="25" font-family="Courier New, monospace" font-size="2.2" fill="#39ff14" opacity="0.07" letter-spacing="0.3" writing-mode="tb">AES-256</text>
+
+      <!-- Zero-Trust along bottom horizontal -->
+      <text x="15" y="59" font-family="Courier New, monospace" font-size="2.5" fill="#39ff14" opacity="0.08" letter-spacing="0.5">Zero-Trust</text>
+
+      <!-- Mil-Spec along vertical trace -->
+      <text x="64" y="10" font-family="Courier New, monospace" font-size="2.2" fill="#39ff14" opacity="0.07" letter-spacing="0.3" writing-mode="tb">Mil-Spec</text>
+    </pattern>
+
+    <!-- Green border gradient -->
+    <linearGradient id="greenBorder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#6fff4a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <!-- Needle bracket gradients -->
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e3e3e3"/>
+      <stop offset="45%" stop-color="#bdbdbd"/>
+      <stop offset="60%" stop-color="#f2f2f2"/>
+      <stop offset="100%" stop-color="#a9a9a9"/>
+    </linearGradient>
+
+    <!-- Corner joint gradient -->
+    <radialGradient id="joint" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#e7edf5"/>
+      <stop offset="0.4" stop-color="#aeb6c0"/>
+      <stop offset="0.75" stop-color="#323840"/>
+      <stop offset="1" stop-color="#0a0c10"/>
+    </radialGradient>
+
+    <!-- Frame shadow -->
+    <filter id="frameShadow" x="-30%" y="-50%" width="160%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Inner glow -->
+    <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="blur"/>
+      <feComposite in="blur" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="innerShadow"/>
+      <feFlood flood-color="#39ff14" flood-opacity="0.2" result="flood"/>
+      <feComposite in="flood" in2="innerShadow" operator="in" result="coloredInner"/>
+      <feMerge>
+        <feMergeNode in="coloredInner"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Circuit glow -->
+    <filter id="circuitGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#39ff14" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Pure Chrome Gradient (for text) -->
+    <linearGradient id="chrome_grad_xirod" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="3%" stop-color="#c0c0c0" stop-opacity="1"/>
+      <stop offset="8%" stop-color="#404040" stop-opacity="1"/>
+      <stop offset="12%" stop-color="#909090" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#e8e8e8" stop-opacity="1"/>
+      <stop offset="45%" stop-color="#a0a0a0" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#505050" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#b0b0b0" stop-opacity="1"/>
+      <stop offset="85%" stop-color="#f0f0f0" stop-opacity="1"/>
+      <stop offset="92%" stop-color="#606060" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#303030" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Dramatic 45° Shadow Filter (for text) -->
+    <filter id="sharp_shadow_xirod" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset in="SourceAlpha" dx="35" dy="35" result="offsetShadow"/>
+      <feGaussianBlur in="offsetShadow" stdDeviation="17.5" result="blurredShadow"/>
+      <feFlood flood-color="#000000" flood-opacity="0.7"/>
+      <feComposite in2="blurredShadow" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Top Highlight Mask (for text) -->
+    <mask id="top_mask_xirod">
+      <rect x="0" y="0" width="900" height="40" fill="white"/>
+    </mask>
+
+    <!-- Brushed Metal Texture Pattern (for backdrop) -->
+    <pattern id="brushedMetal" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(-18)">
+      <rect width="8" height="8" fill="none"/>
+      <rect x="0" y="0" width="1" height="8" fill="#ffffff" opacity="0.04"/>
+      <rect x="4" y="0" width="1" height="8" fill="#ffffff" opacity="0.03"/>
+    </pattern>
+
+    <!-- Diamond Mesh Texture Pattern -->
+    <pattern id="diamondMesh" patternUnits="userSpaceOnUse" width="12" height="12">
+      <rect width="12" height="12" fill="rgba(0,0,0,0.02)"/>
+      <!-- Diamond mesh grid lines -->
+      <path d="M 6,0 L 12,6 L 6,12 L 0,6 Z"
+            stroke="#39ff14" stroke-width="0.6" fill="none" opacity="0.25"/>
+      <!-- Secondary smaller diamond -->
+      <path d="M 6,2 L 10,6 L 6,10 L 2,6 Z"
+            stroke="#39ff14" stroke-width="0.4" fill="none" opacity="0.15"/>
+      <!-- Center cross detail -->
+      <line x1="6" y1="3" x2="6" y2="9" stroke="#39ff14" stroke-width="0.4" opacity="0.18"/>
+      <line x1="3" y1="6" x2="9" y2="6" stroke="#39ff14" stroke-width="0.4" opacity="0.18"/>
+      <!-- Corner dots -->
+      <circle cx="6" cy="0" r="0.5" fill="#39ff14" opacity="0.2"/>
+      <circle cx="12" cy="6" r="0.5" fill="#39ff14" opacity="0.2"/>
+      <circle cx="6" cy="12" r="0.5" fill="#39ff14" opacity="0.2"/>
+      <circle cx="0" cy="6" r="0.5" fill="#39ff14" opacity="0.2"/>
+      <!-- Center node -->
+      <circle cx="6" cy="6" r="0.4" fill="#39ff14" opacity="0.25"/>
+    </pattern>
+
+    <!-- Text mask for brushed metal overlay -->
+    <mask id="textMask">
+      <text x="450" y="113"
+            font-family="Xirod, Impact, Arial Black, sans-serif"
+            font-size="95" font-weight="bold" text-anchor="middle"
+            fill="white">PhiGEN</text>
+    </mask>
+
+    <!-- Font Definitions -->
+    <style type="text/css">
+      @font-face {
+        font-family: 'Xirod';
+        src: url('file:///E:\PythonProjects\PhiGEN\FONTS\Xirod.otf') format('opentype');
+      }
+      @font-face {
+        font-family: 'White Rabbit';
+        src: url('file:///E:\PythonProjects\PhiGEN\FONTS\WHITERABBIT\whitrabt.ttf') format('truetype');
+      }
+    </style>
+  </defs>
+
+  <!-- BACKDROP FRAME GROUP -->
+  <g filter="url(#frameShadow)">
+    <!-- Outer chrome frame -->
+    <rect x="5" y="5" width="890" height="150" rx="8" ry="8"
+          fill="url(#chromeFrame)"
+          stroke="url(#chromeStroke)"
+          stroke-width="3"/>
+
+    <!-- Specular highlight -->
+    <rect x="10" y="8" width="880" height="15" rx="5" ry="5"
+          fill="#ffffff" opacity="0.15"/>
+
+    <!-- Brushed metal backdrop layer -->
+    <rect x="15" y="15" width="870" height="130" rx="5" ry="5"
+          fill="url(#brushedMetal)"/>
+
+    <!-- Inner field with circuit pattern (on top of brushed metal) -->
+    <rect x="15" y="15" width="870" height="130" rx="5" ry="5"
+          fill="url(#circuitPattern)"
+          stroke="url(#greenBorder)" stroke-width="1.5"
+          filter="url(#innerGlow)"/>
+
+    <!-- Needle Bracket Corner Arms -->
+    <g id="needle_brackets" opacity="0.95">
+      <!-- TOP-LEFT NEEDLE BRACKET -->
+      <g id="tl_needle">
+        <!-- Horizontal needle arm with beveled tip -->
+        <path fill="url(#metalGrad)" stroke="#5f5f5f" stroke-width="1.5"
+              d="M25 20 H50 L62 23 L50 27 H25 Z" />
+        <!-- Lumen near the beveled tip -->
+        <ellipse fill="#ededed" stroke="#6f6f6f" stroke-width="0.8"
+                 cx="58" cy="24" rx="2" ry="1.2" transform="rotate(12 58 24)" />
+        <!-- Edge highlight -->
+        <path stroke="rgba(255,255,255,0.6)" stroke-width="0.8" fill="none"
+              d="M25 20 H50 L62 23" />
+
+        <!-- Vertical needle arm with beveled tip -->
+        <path fill="url(#metalGrad)" stroke="#5f5f5f" stroke-width="1.5"
+              d="M20 25 V50 L23 62 L27 50 V25 Z" />
+        <!-- Lumen near the beveled tip -->
+        <ellipse fill="#ededed" stroke="#6f6f6f" stroke-width="0.8"
+                 cx="24" cy="58" rx="1.2" ry="2" transform="rotate(12 24 58)" />
+        <!-- Edge highlight -->
+        <path stroke="rgba(255,255,255,0.6)" stroke-width="0.8" fill="none"
+              d="M27 25 V50 L23 62" />
+
+        <!-- Corner joint -->
+        <circle cx="25" cy="25" r="10" fill="url(#joint)"/>
+        <circle cx="25" cy="25" r="3" fill="#0a0c10"/>
+      </g>
+
+      <!-- TOP-RIGHT NEEDLE BRACKET -->
+      <g id="tr_needle">
+        <!-- Horizontal needle arm with beveled tip (reversed) -->
+        <path fill="url(#metalGrad)" stroke="#5f5f5f" stroke-width="1.5"
+              d="M875 20 H850 L838 23 L850 27 H875 Z" />
+        <!-- Lumen near the beveled tip -->
+        <ellipse fill="#ededed" stroke="#6f6f6f" stroke-width="0.8"
+                 cx="842" cy="24" rx="2" ry="1.2" transform="rotate(-12 842 24)" />
+        <!-- Edge highlight -->
+        <path stroke="rgba(255,255,255,0.6)" stroke-width="0.8" fill="none"
+              d="M875 20 H850 L838 23" />
+
+        <!-- Vertical needle arm with beveled tip -->
+        <path fill="url(#metalGrad)" stroke="#5f5f5f" stroke-width="1.5"
+              d="M880 25 V50 L877 62 L873 50 V25 Z" />
+        <!-- Lumen near the beveled tip -->
+        <ellipse fill="#ededed" stroke="#6f6f6f" stroke-width="0.8"
+                 cx="876" cy="58" rx="1.2" ry="2" transform="rotate(-12 876 58)" />
+        <!-- Edge highlight -->
+        <path stroke="rgba(255,255,255,0.6)" stroke-width="0.8" fill="none"
+              d="M873 25 V50 L877 62" />
+
+        <!-- Corner joint -->
+        <circle cx="875" cy="25" r="10" fill="url(#joint)"/>
+        <circle cx="875" cy="25" r="3" fill="#0a0c10"/>
+      </g>
+
+      <!-- BOTTOM-LEFT NEEDLE BRACKET -->
+      <g id="bl_needle">
+        <!-- Horizontal needle arm with beveled tip -->
+        <path fill="url(#metalGrad)" stroke="#5f5f5f" stroke-width="1.5"
+              d="M25 140 H50 L62 137 L50 133 H25 Z" />
+        <!-- Lumen near the beveled tip -->
+        <ellipse fill="#ededed" stroke="#6f6f6f" stroke-width="0.8"
+                 cx="58" cy="136" rx="2" ry="1.2" transform="rotate(-12 58 136)" />
+        <!-- Edge highlight -->
+        <path stroke="rgba(255,255,255,0.6)" stroke-width="0.8" fill="none"
+              d="M25 133 H50 L62 137" />
+
+        <!-- Vertical needle arm with beveled tip (reversed) -->
+        <path fill="url(#metalGrad)" stroke="#5f5f5f" stroke-width="1.5"
+              d="M20 135 V110 L23 98 L27 110 V135 Z" />
+        <!-- Lumen near the beveled tip -->
+        <ellipse fill="#ededed" stroke="#6f6f6f" stroke-width="0.8"
+                 cx="24" cy="102" rx="1.2" ry="2" transform="rotate(-12 24 102)" />
+        <!-- Edge highlight -->
+        <path stroke="rgba(255,255,255,0.6)" stroke-width="0.8" fill="none"
+              d="M27 135 V110 L23 98" />
+
+        <!-- Corner joint -->
+        <circle cx="25" cy="135" r="10" fill="url(#joint)"/>
+        <circle cx="25" cy="135" r="3" fill="#0a0c10"/>
+      </g>
+
+      <!-- BOTTOM-RIGHT NEEDLE BRACKET -->
+      <g id="br_needle">
+        <!-- Horizontal needle arm with beveled tip (reversed) -->
+        <path fill="url(#metalGrad)" stroke="#5f5f5f" stroke-width="1.5"
+              d="M875 140 H850 L838 137 L850 133 H875 Z" />
+        <!-- Lumen near the beveled tip -->
+        <ellipse fill="#ededed" stroke="#6f6f6f" stroke-width="0.8"
+                 cx="842" cy="136" rx="2" ry="1.2" transform="rotate(12 842 136)" />
+        <!-- Edge highlight -->
+        <path stroke="rgba(255,255,255,0.6)" stroke-width="0.8" fill="none"
+              d="M875 133 H850 L838 137" />
+
+        <!-- Vertical needle arm with beveled tip (reversed) -->
+        <path fill="url(#metalGrad)" stroke="#5f5f5f" stroke-width="1.5"
+              d="M880 135 V110 L877 98 L873 110 V135 Z" />
+        <!-- Lumen near the beveled tip -->
+        <ellipse fill="#ededed" stroke="#6f6f6f" stroke-width="0.8"
+                 cx="876" cy="102" rx="1.2" ry="2" transform="rotate(12 876 102)" />
+        <!-- Edge highlight -->
+        <path stroke="rgba(255,255,255,0.6)" stroke-width="0.8" fill="none"
+              d="M873 135 V110 L877 98" />
+
+        <!-- Corner joint -->
+        <circle cx="875" cy="135" r="10" fill="url(#joint)"/>
+        <circle cx="875" cy="135" r="3" fill="#0a0c10"/>
+      </g>
+    </g>
+
+    <!-- LED indicator dots -->
+    <circle cx="25" cy="80" r="2" fill="#39ff14" opacity="0.8" filter="url(#circuitGlow)"/>
+    <circle cx="875" cy="80" r="2" fill="#39ff14" opacity="0.8" filter="url(#circuitGlow)"/>
+  </g>
+
+  <!-- PHIGEN TEXT GROUP (on top of backdrop) -->
+  <!-- 3D Depth Layers (shadows) -->
+  <g id="depth_layers_xirod">
+    <text x="465" y="128"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.03)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="462" y="125"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.054)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="459" y="122"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.078)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="456" y="119"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.102)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="453" y="116"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.126)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+  </g>
+
+  <!-- Main Text -->
+  <g id="main_text_xirod">
+    <text x="450" y="113"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="url(#chrome_grad_xirod)"
+          stroke="#101010" stroke-width="3"
+          stroke-linejoin="miter" stroke-linecap="square"
+          shape-rendering="crispEdges"
+          filter="url(#sharp_shadow_xirod)">PhiGEN</text>
+
+    <!-- Top Highlight -->
+    <text x="450" y="108"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="#ffffff" opacity="0.4" stroke="none"
+          shape-rendering="crispEdges"
+          mask="url(#top_mask_xirod)">PhiGEN</text>
+
+    <!-- Diamond Mesh Texture Overlay -->
+    <rect x="0" y="0" width="900" height="160"
+          fill="url(#diamondMesh)"
+          mask="url(#textMask)"
+          opacity="0.8"/>
+  </g>
+
+  <!-- VERSION TEXT -->
+  <g id="version_text">
+    <!-- Version shadow -->
+    <text x="722" y="120"
+          font-family="White Rabbit, Courier New, monospace"
+          font-size="22" font-weight="normal" text-anchor="start"
+          fill="rgba(0,0,0,0.4)" stroke="none">v1.0a</text>
+
+    <!-- Version main text -->
+    <text x="720" y="118"
+          font-family="White Rabbit, Courier New, monospace"
+          font-size="22" font-weight="normal" text-anchor="start"
+          fill="url(#chrome_grad_xirod)"
+          stroke="#101010" stroke-width="1"
+          shape-rendering="crispEdges">v1.0a</text>
+
+    <!-- Version highlight -->
+    <text x="720" y="116"
+          font-family="White Rabbit, Courier New, monospace"
+          font-size="22" font-weight="normal" text-anchor="start"
+          fill="#ffffff" opacity="0.3" stroke="none">v1.0a</text>
+  </g>
+
+  <!-- MECHANICAL DETAILS ON LETTERS -->
+  <g id="mechanical_details" stroke="#39ff14" fill="none" opacity="0.3">
+    <!-- P - Letter 1 Details -->
+    <g id="letter_P_details">
+      <!-- Rivets -->
+      <circle cx="208" cy="75" r="1.5" fill="#39ff14" opacity="1"/>
+      <circle cx="208" cy="95" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="220" cy="80" r="1.2" fill="#39ff14" opacity="0.35"/>
+      <!-- Vent grille -->
+      <rect x="212" y="88" width="6" height="2" stroke-width="0.7" opacity="1"/>
+      <rect x="212" y="91" width="6" height="2" stroke-width="0.7" opacity="1"/>
+      <!-- Circuit trace -->
+      <path d="M 210 78 L 215 78 L 217 80" stroke-width="0.8" opacity="0.9"/>
+      <circle cx="217" cy="80" r="0.7" fill="#39ff14" opacity="1"/>
+    </g>
+
+    <!-- h - Letter 2 Details -->
+    <g id="letter_h_details">
+      <!-- Rivets -->
+      <circle cx="270" cy="77" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="270" cy="100" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="285" cy="85" r="1.2" fill="#39ff14" opacity="0.35"/>
+      <!-- Small panel box -->
+      <rect x="273" y="90" width="5" height="8" stroke-width="0.8" opacity="0.25"/>
+      <line x1="273" y1="94" x2="278" y2="94" stroke-width="0.6" opacity="0.2"/>
+      <!-- Micro circuit -->
+      <path d="M 277 73 L 280 73 L 282 75" stroke-width="0.7" opacity="0.2"/>
+      <circle cx="282" cy="75" r="0.6" fill="#39ff14" opacity="0.3"/>
+    </g>
+
+    <!-- i - Letter 3 Details -->
+    <g id="letter_i_details">
+      <!-- Rivets -->
+      <circle cx="345" cy="80" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="345" cy="98" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="355" cy="92" r="1.2" fill="#39ff14" opacity="0.35"/>
+      <!-- Vent slots -->
+      <line x1="347" y1="102" x2="353" y2="102" stroke-width="1.5" opacity="0.2"/>
+      <line x1="347" y1="105" x2="353" y2="105" stroke-width="1.5" opacity="0.2"/>
+      <!-- Circuit detail on dot -->
+      <circle cx="350" cy="65" r="1" fill="none" stroke-width="0.8" opacity="0.25"/>
+      <circle cx="350" cy="65" r="0.5" fill="#39ff14" opacity="0.3"/>
+    </g>
+
+    <!-- G - Letter 4 Details -->
+    <g id="letter_G_details">
+      <!-- Rivets -->
+      <circle cx="410" cy="75" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="410" cy="102" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="430" cy="88" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="425" cy="95" r="1.2" fill="#39ff14" opacity="0.35"/>
+      <!-- Reinforcement plates -->
+      <rect x="413" y="78" width="8" height="5" stroke-width="0.8" opacity="0.25"/>
+      <line x1="413" y1="80.5" x2="421" y2="80.5" stroke-width="0.6" opacity="0.2"/>
+      <!-- Circuit path -->
+      <path d="M 415 92 L 420 92 L 422 94" stroke-width="0.8" opacity="0.2"/>
+      <circle cx="422" cy="94" r="0.7" fill="#39ff14" opacity="0.3"/>
+    </g>
+
+    <!-- E - Letter 5 Details -->
+    <g id="letter_E_details">
+      <!-- Rivets on verticals -->
+      <circle cx="490" cy="77" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="490" cy="90" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="490" cy="103" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <!-- Rivets on horizontals -->
+      <circle cx="503" cy="75" r="1.2" fill="#39ff14" opacity="0.35"/>
+      <circle cx="503" cy="88" r="1.2" fill="#39ff14" opacity="0.35"/>
+      <circle cx="503" cy="105" r="1.2" fill="#39ff14" opacity="0.35"/>
+      <!-- Vent panel -->
+      <rect x="497" y="95" width="7" height="3" stroke-width="0.7" opacity="0.25"/>
+      <line x1="497" y1="96.5" x2="504" y2="96.5" stroke-width="0.5" opacity="0.2"/>
+      <!-- Circuit trace -->
+      <path d="M 492 80 L 497 80 L 499 82" stroke-width="0.8" opacity="0.2"/>
+      <circle cx="499" cy="82" r="0.7" fill="#39ff14" opacity="0.3"/>
+    </g>
+
+    <!-- N - Letter 6 Details -->
+    <g id="letter_N_details">
+      <!-- Rivets -->
+      <circle cx="570" cy="78" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="570" cy="102" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="590" cy="78" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="590" cy="102" r="1.5" fill="#39ff14" opacity="0.4"/>
+      <circle cx="580" cy="87.5" r="1.2" fill="#39ff14" opacity="0.35"/>
+      <!-- Vent grilles -->
+      <rect x="575" y="90" width="6" height="2" stroke-width="0.7" opacity="0.25"/>
+      <rect x="575" y="93" width="6" height="2" stroke-width="0.7" opacity="0.25"/>
+      <!-- Circuit nodes -->
+      <path d="M 573 75 L 578 75 L 580 77" stroke-width="0.8" opacity="0.2"/>
+      <circle cx="580" cy="77" r="0.7" fill="#39ff14" opacity="0.3"/>
+      <path d="M 587 100 L 592 100 L 594 98" stroke-width="0.8" opacity="0.2"/>
+      <circle cx="594" cy="98" r="0.7" fill="#39ff14" opacity="0.3"/>
+    </g>
+  </g>
+
+</svg>
