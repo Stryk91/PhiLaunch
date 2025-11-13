@@ -26,6 +26,7 @@ jobs:
             .git
             workspace
             exported_chats
+            marketing
         env:
           SHELLCHECK_OPTS: -e SC1090 -e SC1091
 
@@ -65,11 +66,12 @@ jobs:
           echo "Validating bash script syntax..."
           EXIT_CODE=0
 
-          # Find all .sh files
+          # Find all .sh files (exclude marketing, git, workspace, exported_chats)
           FILES=$(find . -type f -name "*.sh" \
             -not -path "./.git/*" \
             -not -path "./workspace/*" \
-            -not -path "./exported_chats/*")
+            -not -path "./exported_chats/*" \
+            -not -path "./marketing/*")
 
           for file in $FILES; do
             echo "Checking: $file"
@@ -120,6 +122,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Install required dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openssh-client python3
 
       - name: Check dependencies
         run: |
