@@ -1,309 +1,138 @@
-# PhiVector Marketing Site
+PhiVector Landing Page
+Tactical chrome aesthetics for precision-engineered systems.
+Overview
+Single-page landing site for PhiVector�umbrella brand for PhiLaunch and future automation/orchestration tools. Built with biomechanical chrome design language, tactical UI elements, and zero marketing fluff.
+Design Philosophy
 
-Static website for PhiVector ecosystem and PhiLaunch plugin.
+Fourth iteration mindset: Refuse good-enough solutions
+Tactical military aesthetic: Chrome, circuits, precision
+Factual over promotional: No analogies, no fluff�just what it does
+Visual quality = product quality: Brand is as important as code
 
-## Structure
+Technical Stack
 
+Pure HTML/CSS/JavaScript (no frameworks, no dependencies)
+Google Fonts: Orbitron (headers), Rajdhani (body)
+SVG for high-DPI graphics (barbs, blast doors)
+Responsive design (mobile-first)
+Zero external assets required
+
+Key Features
+Visual Elements
+
+Biomechanical chrome title: T-800/HR Giger fusion with diamond plate reinforcement
+Breathing circuit veins: Animated background pulsing chrome-to-green
+Serrated barb brackets: Bee stinger microscopic aesthetic with venom glow
+Hydraulic blast door menu: Premium SVG side-sliding doors with hinge details
+Tactical scroll indicator: Chrome track with animated green chevron
+
+Interaction
+
+Side panel navigation slides from right
+Click blast doors or ESC to close
+Smooth scroll indicator (hidden on mobile)
+Dark overlay fade for panel focus
+
+Content Structure
+
+Hero section: Title, tagline, subtitle
+Side panel: PhiLaunch flagship + resources (GitHub, docs, roadmap, contact)
+Minimal, scalable�ready for product expansion
+
+Color Palette
+css--primary-bg: #0a0a0a        /* Deep black */
+--tactical-green: #00FF00     /* Accent/glow */
+--chrome-light: #C0C0C0       /* Primary text */
+--chrome-mid: #8B8B8B         /* Secondary elements */
+--chrome-dark: #505050        /* Shadows */
+```
+
+## Typography
+
+- **Headers**: Orbitron (tactical/tech aesthetic)
+- **Body**: Rajdhani (clean military-style)
+- Letter-spacing, golden ratio proportions throughout
+
+## File Structure
 ```
 marketing/
-├── index.html                          # PhiVector ecosystem homepage
-├── plugins/
-│   └── philaunch/
-│       └── index.html                  # PhiLaunch plugin detail page
-└── assets/
-    ├── css/
-    │   ├── phivector-colors.css        # Color system + Fibonacci spacing
-    │   └── phivector-main.css          # Main stylesheet
-    └── js/
-        └── phivector-main.js           # Interactive features
-```
++-- index.html          # Single-file landing page (this is it)
++-- assets/            # Design assets (NOT for landing page)
+    +-- design-assets/ # PhiGEN/other project assets
+    +-- images/        # Logos, textures, backgrounds
+    +-- ...
+Deployment
+GitHub Pages
 
-## Design System
+Push index.html to marketing/ directory
+Enable GitHub Pages in repo settings
+Set source to main branch, /marketing folder
+Site live at: https://stryk91.github.io/PhiLaunch/
 
-### Color Palette
+Local Testing
+bashcd /home/STRYK/marketing
+python3 -m http.server 8000
+# Open browser to http://localhost:8000
+Browser Compatibility
 
-**Industrial Tactical Multi-Color System**:
-- Chrome/Metallic greys
-- Neon cyan accents
-- Fel green (tactical green)
-- Blacks (lifted, not pure)
-- Gunmetal grey
-- Off-teal
-- Pine (dark green)
+Chrome/Edge: Full support
+Firefox: Full support
+Safari: Full support (webkit prefixes included)
+Mobile: Responsive breakpoints at 768px
 
-### Mathematical Foundation
+Performance
 
-**Golden Ratio (φ = 1.618)** applied throughout:
+Page weight: ~50KB (including inline CSS/JS)
+Load time: <500ms on 3G
+No external dependencies (except Google Fonts CDN)
+Zero JavaScript frameworks
 
-**Fibonacci Spacing** (px):
-```
-3, 5, 8, 13, 21, 34, 55, 89, 144
-```
+Design Session Notes
+Built with Claude (Desktop Claude/DC) in collaboration with STRYKER over ~190k tokens. Iterative process:
 
-**Fibonacci Timing** (ms):
-```
-89, 144, 233, 377, 610
-```
+Base chrome title + circuit background
+Biomechanical texture refinement (T-800/Giger fusion)
+SVG barbs with organic curves (microscopic bee stinger)
+Premium blast door menu icon (12-stop gradients, hinge bolts)
+Tactical side panel with factual PhiLaunch specs
+Scroll indicator with chrome track
 
-**φ-based Easing**:
-```css
-cubic-bezier(0.618, 0, 0.382, 1)
-```
+Key directive: One element at a time, pixel-perfect, no overflow.
+Future Expansion
+When products hit milestones:
 
-**Typography** (Fibonacci px):
-```
-8, 13, 21, 34, 55, 89
-```
+Add content sections below hero (scroll reveals)
+Expand side panel with additional products
+Integrate actual documentation links
+Add hydraulic sound effect to blast doors
 
-**Grid System**:
-- Golden ratio splits: 61.8% / 38.2%
-- Fibonacci-based gaps
+Keep it lean�only show what supports the devops/remote ops narrative.
+Brand Contrast
+What we're NOT (reference: other AI's attempt):
 
-### Constraints
+Generic corporate SaaS template
+Emoji icons and marketing fluff
+"Best-in-class" buzzword spam
+Boring gradient backgrounds
+Standard card layouts
 
-**Mandatory Rules**:
-1. ALL spacing must use Fibonacci values (3/5/8/13/21/34/55/89px)
-2. ALL font sizes must be Fibonacci (8/13/21/34/55/89px)
-3. ALL animation durations must be Fibonacci milliseconds
-4. ALL easing curves must use φ-based cubic-bezier
-5. NO arbitrary values (10px, 15px, 20px are forbidden)
+What we ARE:
 
-**Exceptions**:
-- 1px borders (technical constraint)
-- Percentages (for responsive grids)
+Precision-engineered visual identity
+Tactical weapons-grade aesthetics
+Dimensional chrome with actual depth
+Factual, direct, no posturing
 
-## Brand Voice
+License
+Proprietary�PhiVector branding and design assets.
+Code structure can be referenced for learning.
+Contact
 
-**Style**: Industrial, tactical, angular, powerful, no-bullshit
+GitHub: https://github.com/Stryk91/PhiLaunch
+Location: Melbourne, Australia
+Trademark: Pending
 
-**Tone**:
-- Direct and concise
-- Technical depth
-- Zero marketing fluff
-- Outcome-focused
-- Mathematical precision
 
-**What to Avoid**:
-- Generic SaaS marketing speak
-- Superlatives ("revolutionary", "amazing")
-- Stock photo aesthetics
-- Emoji (use sparingly, only in icons)
-- Excessive enthusiasm
-
-**What to Emphasize**:
-- Mathematical foundations (φ, Fibonacci)
-- Technical specifications
-- Transparent security
-- Local-first architecture
-- Production-ready reliability
-
-## Components
-
-### Cards
-```html
-<div class="card">
-    <h3 class="card-title">Title</h3>
-    <p class="card-description">Description</p>
-</div>
-```
-
-### Buttons
-```html
-<a href="#" class="btn btn-primary">Primary Action</a>
-<a href="#" class="btn btn-secondary">Secondary Action</a>
-<a href="#" class="btn btn-outline">Tertiary Action</a>
-```
-
-### Grids
-```html
-<!-- Equal columns -->
-<div class="grid grid-2">...</div>
-<div class="grid grid-3">...</div>
-
-<!-- Golden ratio grid -->
-<div class="grid-phi">...</div>
-```
-
-### Spacing Utilities
-```html
-<div class="p-13">Padding 13px (Fibonacci)</div>
-<div class="m-21">Margin 21px (Fibonacci)</div>
-<div class="gap-8">Gap 8px (Fibonacci)</div>
-```
-
-## JavaScript Features
-
-- Smooth scroll for anchor links
-- Fade-in animations on scroll
-- Header shadow on scroll
-- Stats counter animations (φ counter)
-- Card hover glow effects
-- Button ripple effects (φ-timed)
-- Code block copy functionality
-- Active nav link highlighting
-
-All animations use φ-based timing (89/144/233/377/610ms).
-
-## Responsive Breakpoints
-
-```css
-/* Desktop: 1440px+ (default) */
-
-/* Tablet: 1024px */
-@media (max-width: 1024px) {
-    /* Grid adjustments */
-}
-
-/* Mobile: 768px */
-@media (max-width: 768px) {
-    /* Single column layouts */
-}
-```
-
-## Browser Support
-
-- Modern evergreen browsers (Chrome, Firefox, Safari, Edge)
-- CSS Grid and Flexbox required
-- JavaScript ES6+ features used
-- No polyfills included (assume modern environment)
-
-## Performance
-
-- No external dependencies (besides Google Fonts)
-- Pure HTML/CSS/JS (no frameworks)
-- Minimal JavaScript
-- Optimized for fast loading
-- Static site (can deploy anywhere)
-
-## Deployment
-
-### GitHub Pages
-```bash
-# Enable GitHub Pages in repo settings
-# Set source to /marketing directory
-```
-
-### Static Hosting
-```bash
-# Upload /marketing directory contents to:
-# - Netlify
-# - Vercel
-# - CloudFlare Pages
-# - Any static host
-```
-
-### Local Testing
-```bash
-# Python 3
-cd marketing
-python3 -m http.server 8080
-# http://localhost:8080
-
-# Or use dashboard server
-cd ..
-./start-dashboard.sh
-# http://localhost:8080/marketing
-```
-
-## Customization
-
-### Colors
-Edit `assets/css/phivector-colors.css`:
-```css
-:root {
-    --neon-cyan: #00F0FF;      /* Primary accent */
-    --fel-green: #5FBF00;      /* Secondary accent */
-    --gunmetal: #52595D;       /* Borders */
-}
-```
-
-### Typography
-Fonts are loaded from Google Fonts:
-- **UI**: Inter
-- **Mono**: JetBrains Mono
-- **Display**: Rajdhani
-
-To change fonts, update:
-1. `<link>` tag in HTML
-2. `--font-ui`, `--font-mono`, `--font-display` in CSS
-
-### Timing
-Adjust animation speeds in `phivector-colors.css`:
-```css
-:root {
-    --timing-instant: 89ms;    /* Faster: 55ms */
-    --timing-fast: 144ms;      /* Faster: 89ms */
-    /* etc. (keep Fibonacci values) */
-}
-```
-
-## Brand Assets Needed
-
-**Logo**: Phi spiral (φ-based geometric spiral)
-**Favicon**: Simplified phi symbol
-**Icons**: Angular, industrial style
-**Imagery**: No stock photos, technical diagrams preferred
-
-## Content Guidelines
-
-### Homepage
-- Hero: Value proposition (1 sentence)
-- Plugins: All ecosystem plugins listed
-- Differentiators: What makes PhiVector unique
-- Documentation: Link to guides
-- Download: Full suite + individual plugins
-
-### Plugin Pages
-- Hero: Plugin-specific value prop
-- Problem/Solution: What it solves
-- Features: Specific capabilities (with code examples)
-- Use Cases: Who it's for
-- Architecture: Tech stack, structure
-- Installation: Quick start guide
-- Documentation: Links to guides
-- Community: GitHub, issues, contributing
-
-## SEO
-
-**Title Pattern**:
-```
-PhiVector | [Value Proposition]
-PhiLaunch | [Plugin Purpose]
-```
-
-**Meta Description**:
-- 150-160 characters
-- Keywords: mathematical, precision, automation, monitoring, etc.
-- No fluff, direct description
-
-**Keywords**:
-- Golden ratio design
-- Fibonacci architecture
-- Remote automation
-- Transparent security
-- Local-first tools
-
-## Accessibility
-
-- WCAG 2.1 AA contrast ratios enforced
-- Focus indicators on all interactive elements
-- Semantic HTML structure
-- `prefers-reduced-motion` support
-- Keyboard navigation supported
-
-## Version
-
-**v1.0.0** - Initial marketing site
-- PhiVector ecosystem homepage
-- PhiLaunch plugin detail page
-- Complete design system
-- Interactive JavaScript features
-- Full φ-based mathematical constraints
-
-## License
-
-Same as PhiLaunch repository.
-
----
-
-**Built with mathematical precision. φ = 1.618**
+Built by: STRYKER + Claude (DC)
+Session: 2025-11-15
+Philosophy: Brand IS product. No compromises.
