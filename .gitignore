@@ -10,6 +10,13 @@
 !*.ps1
 !*.json
 !*.lua
+!*.yml
+!*.yaml
+!*.bats
+!*.bash
+!*.html
+!*.css
+!*.js
 !automation/
 !remote-scripts/
 !RNG_Scripts/
@@ -17,8 +24,17 @@
 !claude-bootstrap/
 !config/
 !tools/
+!tests/
+!scripts/
+!docs/
+!dashboard/
+!marketing/
+!.github/
+!.githooks/
+!.markdownlint.json
 !PROJECT_GUIDELINES.md
 !SSH-QUICK-REFERENCE.md
+!CONTRIBUTING.md
 
 # Exclude sensitive/unnecessary
 .aws
@@ -61,3 +77,6 @@ workspace/
 # Logs
 *.log
 *.out
+
+# Dashboard runtime files (auto-generated)
+dashboard/api/*.json

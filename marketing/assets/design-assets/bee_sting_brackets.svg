@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bee-stinger-inspired L-shaped corner bracket (top-left) -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <style>
+      .arm  { fill: #bdbdbd; stroke: #6f6f6f; stroke-width: 2; }
+      .barb { fill: #8e8e8e; stroke: #6f6f6f; stroke-width: 1.5; }
+      .shadow { fill: rgba(0,0,0,0.08); }
+    </style>
+  </defs>
+
+  <g id="bee-stinger-bracket">
+    <!-- Horizontal arm with symmetric pointed tip -->
+    <!-- Corner at (40,40), thickness ~20, length ~180, tip length ~30 -->
+    <path class="arm"
+          d="M40 40 L220 40 L250 50 L220 60 L40 60 Z" />
+
+    <!-- Vertical arm with symmetric pointed tip -->
+    <path class="arm"
+          d="M40 40 L60 40 L60 220 L50 250 L40 220 Z" />
+
+    <!-- Barbs along the bottom side of the horizontal arm (backward-facing) -->
+    <polygon class="barb" points="208,60 218,60 212,68" />
+    <polygon class="barb" points="194,60 204,60 198,68" />
+    <polygon class="barb" points="180,60 190,60 184,68" />
+
+    <!-- Barbs along the right side of the vertical arm (backward-facing) -->
+    <polygon class="barb" points="60,208 60,218 68,212" />
+    <polygon class="barb" points="60,194 60,204 68,198" />
+    <polygon class="barb" points="60,180 60,190 68,184" />
+  </g>
+</svg>

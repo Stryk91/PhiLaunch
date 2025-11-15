@@ -19,16 +19,16 @@ CONFIG_FILE="${PHILAUNCH_ROOT}/config/philaunch.conf"
 
 # Check if config exists
 if [ ! -f "$CONFIG_FILE" ]; then
-    echo "ERROR: PhiLaunch config file not found: $CONFIG_FILE"
-    echo ""
-    echo "Please run the setup wizard first:"
-    echo "  cd ${PHILAUNCH_ROOT}"
-    echo "  ./setup.sh"
-    echo ""
-    echo "Or manually copy the example config:"
-    echo "  cp config/philaunch.conf.example config/philaunch.conf"
-    echo "  nano config/philaunch.conf"
-    exit 1
+    echo "ERROR: PhiLaunch config file not found: $CONFIG_FILE" >&2
+    echo "" >&2
+    echo "Please run the setup wizard first:" >&2
+    echo "  cd ${PHILAUNCH_ROOT}" >&2
+    echo "  ./setup.sh" >&2
+    echo "" >&2
+    echo "Or manually copy the example config:" >&2
+    echo "  cp config/philaunch.conf.example config/philaunch.conf" >&2
+    echo "  nano config/philaunch.conf" >&2
+    return 1 2>/dev/null || exit 1
 fi
 
 # Load the configuration
@@ -50,13 +50,13 @@ for var in "${REQUIRED_VARS[@]}"; do
 done
 
 if [ ${#MISSING_VARS[@]} -gt 0 ]; then
-    echo "ERROR: Required configuration variables are missing:"
+    echo "ERROR: Required configuration variables are missing:" >&2
     for var in "${MISSING_VARS[@]}"; do
-        echo "  - $var"
+        echo "  - $var" >&2
     done
-    echo ""
-    echo "Please update your config file: $CONFIG_FILE"
-    exit 1
+    echo "" >&2
+    echo "Please update your config file: $CONFIG_FILE" >&2
+    return 1 2>/dev/null || exit 1
 fi
 
 # Export variables so they're available to child processes

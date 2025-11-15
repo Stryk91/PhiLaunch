@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="900" height="160" viewBox="0 0 900 160">
+
+  <defs>
+    <!-- Pure Chrome Gradient -->
+    <linearGradient id="chrome_grad_cyberdyne" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="3%" stop-color="#c0c0c0" stop-opacity="1"/>
+      <stop offset="8%" stop-color="#404040" stop-opacity="1"/>
+      <stop offset="12%" stop-color="#909090" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#e8e8e8" stop-opacity="1"/>
+      <stop offset="45%" stop-color="#a0a0a0" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#505050" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#b0b0b0" stop-opacity="1"/>
+      <stop offset="85%" stop-color="#f0f0f0" stop-opacity="1"/>
+      <stop offset="92%" stop-color="#606060" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#303030" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Sharp Shadow Filter -->
+    <filter id="sharp_shadow_cyberdyne" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset in="SourceAlpha" dx="10" dy="10" result="offsetShadow"/>
+      <feFlood flood-color="#000000" flood-opacity="0.8"/>
+      <feComposite in2="offsetShadow" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Top Highlight Mask -->
+    <mask id="top_mask_cyberdyne">
+      <rect x="0" y="0" width="900" height="40" fill="white"/>
+    </mask>
+
+    <!-- Font Definition -->
+    <style type="text/css">
+      @font-face {
+        font-family: 'Cyberdyne';
+        src: url('file:///E:\PythonProjects\PhiGEN\FONTS\Cyberdyne-5Z48.otf') format('opentype');
+      }
+    </style>
+  </defs>
+
+  <!-- 3D Depth Layers (shadows) -->
+  <g id="depth_layers_cyberdyne">
+    <text x="465" y="125"
+          font-family="Cyberdyne, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.03)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="462" y="122"
+          font-family="Cyberdyne, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.05399999999999999)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="459" y="119"
+          font-family="Cyberdyne, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.07799999999999999)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="456" y="116"
+          font-family="Cyberdyne, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.102)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="453" y="113"
+          font-family="Cyberdyne, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.126)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+  </g>
+
+  <!-- Main Text -->
+  <g id="main_text_cyberdyne">
+    <text x="450" y="110"
+          font-family="Cyberdyne, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="url(#chrome_grad_cyberdyne)"
+          stroke="#101010" stroke-width="3"
+          stroke-linejoin="miter" stroke-linecap="square"
+          shape-rendering="crispEdges"
+          filter="url(#sharp_shadow_cyberdyne)">PhiGEN</text>
+
+    <!-- Top Highlight -->
+    <text x="450" y="105"
+          font-family="Cyberdyne, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="#ffffff" opacity="0.4" stroke="none"
+          shape-rendering="crispEdges"
+          mask="url(#top_mask_cyberdyne)">PhiGEN</text>
+  </g>
+
+  <!-- Angular Corner Brackets -->
+  <g id="corner_brackets_cyberdyne"
+     stroke="#a0a0a0" stroke-width="3" fill="none"
+     stroke-linejoin="miter" stroke-linecap="square">
+    <polyline points="40,70 40,40 70,40"/>
+    <polyline points="830,40 860,40 860,70"/>
+    <polyline points="40,130 40,160 70,160"/>
+    <polyline points="830,160 860,160 860,130"/>
+  </g>
+
+</svg>

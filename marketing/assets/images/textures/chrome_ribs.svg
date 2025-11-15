@@ -1,0 +1,19 @@
+<!-- chrome-ribs.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="rib-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#090b0e"/>
+      <stop offset="0.25" stop-color="#2a2f36"/>
+      <stop offset="0.5" stop-color="#aeb6bf"/>
+      <stop offset="0.75" stop-color="#2a2f36"/>
+      <stop offset="1" stop-color="#090b0e"/>
+    </linearGradient>
+    <pattern id="ribs" patternUnits="userSpaceOnUse" width="64" height="32">
+      <rect width="64" height="32" fill="url(#rib-grad)"/>
+      <!-- Soft seam shadow to add depth without visible edges -->
+      <rect y="31" width="64" height="1" fill="#000" opacity="0.35"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="#0b0d10"/>
+  <rect width="512" height="512" fill="url(#ribs)"/>
+</svg>

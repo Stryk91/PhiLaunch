@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="900" height="160" viewBox="0 0 900 160">
+
+  <defs>
+    <!-- Pure Chrome Gradient -->
+    <linearGradient id="chrome_grad_xirod" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="3%" stop-color="#c0c0c0" stop-opacity="1"/>
+      <stop offset="8%" stop-color="#404040" stop-opacity="1"/>
+      <stop offset="12%" stop-color="#909090" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#e8e8e8" stop-opacity="1"/>
+      <stop offset="45%" stop-color="#a0a0a0" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#505050" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#b0b0b0" stop-opacity="1"/>
+      <stop offset="85%" stop-color="#f0f0f0" stop-opacity="1"/>
+      <stop offset="92%" stop-color="#606060" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#303030" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Dramatic 45° Shadow Filter -->
+    <filter id="sharp_shadow_xirod" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- Offset at 45° angle toward bottom-right (30-40px) -->
+      <feOffset in="SourceAlpha" dx="35" dy="35" result="offsetShadow"/>
+      <!-- Soft blur (15-20px radius) -->
+      <feGaussianBlur in="offsetShadow" stdDeviation="17.5" result="blurredShadow"/>
+      <!-- Black shadow starting at 70% opacity -->
+      <feFlood flood-color="#000000" flood-opacity="0.7"/>
+      <feComposite in2="blurredShadow" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Top Highlight Mask -->
+    <mask id="top_mask_xirod">
+      <rect x="0" y="0" width="900" height="40" fill="white"/>
+    </mask>
+
+    <!-- Font Definition -->
+    <style type="text/css">
+      @font-face {
+        font-family: 'Xirod';
+        src: url('file:///E:\PythonProjects\PhiGEN\FONTS\Xirod.otf') format('opentype');
+      }
+    </style>
+  </defs>
+
+  <!-- 3D Depth Layers (shadows) -->
+  <g id="depth_layers_xirod">
+    <text x="465" y="125"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.03)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="462" y="122"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.05399999999999999)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="459" y="119"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.07799999999999999)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="456" y="116"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.102)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+    <text x="453" y="113"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="rgba(0,0,0,0.126)" stroke="none"
+          shape-rendering="crispEdges">PhiGEN</text>
+  </g>
+
+  <!-- Main Text -->
+  <g id="main_text_xirod">
+    <text x="450" y="110"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="url(#chrome_grad_xirod)"
+          stroke="#101010" stroke-width="3"
+          stroke-linejoin="miter" stroke-linecap="square"
+          shape-rendering="crispEdges"
+          filter="url(#sharp_shadow_xirod)">PhiGEN</text>
+
+    <!-- Top Highlight -->
+    <text x="450" y="105"
+          font-family="Xirod, Impact, Arial Black, sans-serif"
+          font-size="95" font-weight="bold" text-anchor="middle"
+          fill="#ffffff" opacity="0.4" stroke="none"
+          shape-rendering="crispEdges"
+          mask="url(#top_mask_xirod)">PhiGEN</text>
+  </g>
+
+  <!-- Angular Corner Brackets -->
+  <g id="corner_brackets_xirod"
+     stroke="#a0a0a0" stroke-width="3" fill="none"
+     stroke-linejoin="miter" stroke-linecap="square">
+    <polyline points="40,70 40,40 70,40"/>
+    <polyline points="830,40 860,40 860,70"/>
+    <polyline points="40,130 40,160 70,160"/>
+    <polyline points="830,160 860,160 860,130"/>
+  </g>
+
+</svg>

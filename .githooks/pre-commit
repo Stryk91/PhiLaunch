@@ -1,0 +1,144 @@
+#!/bin/bash
+# PhiLaunch Pre-commit Hook
+# Runs checks before allowing commits
+
+set -e
+
+echo "Running pre-commit checks..."
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+EXIT_CODE=0
+
+# Function to check for secrets
+check_secrets() {
+    echo "▶ Checking for exposed secrets..."
+
+    # Patterns to check
+    PATTERNS=(
+        "password.*=.*['\"][^'\"]{4,}['\"]"
+        "api[_-]?key.*=.*['\"][^'\"]{8,}['\"]"
+        "secret.*=.*['\"][^'\"]{8,}['\"]"
+        "token.*=.*['\"][^'\"]{16,}['\"]"
+        "AKIA[0-9A-Z]{16}"  # AWS access key
+        "ghp_[A-Za-z0-9]{36}"  # GitHub token
+        "Pass:.*[0-9]{4,}"  # Password patterns
+    )
+
+    FOUND=false
+    for pattern in "${PATTERNS[@]}"; do
+        if git diff --cached | grep -iE "$pattern" > /dev/null; then
+            echo -e "${RED}✗ Potential secret found matching pattern: $pattern${NC}"
+            FOUND=true
+        fi
+    done
+
+    if [ "$FOUND" = true ]; then
+        echo -e "${RED}✗ Secrets detected in staged changes!${NC}"
+        echo "  Remove secrets before committing"
+        return 1
+    else
+        echo -e "${GREEN}✓ No secrets detected${NC}"
+        return 0
+    fi
+}
+
+# Function to check for personal config
+check_personal_config() {
+    echo "▶ Checking for personal config files..."
+
+    if git diff --cached --name-only | grep -q "config/philaunch.conf$"; then
+        echo -e "${RED}✗ Attempting to commit personal config file!${NC}"
+        echo "  config/philaunch.conf should be in .gitignore"
+        return 1
+    fi
+
+    echo -e "${GREEN}✓ No personal config files${NC}"
+    return 0
+}
+
+# Function to run shellcheck
+check_shellcheck() {
+    if ! command -v shellcheck &> /dev/null; then
+        echo -e "${YELLOW}⚠ shellcheck not installed - skipping${NC}"
+        return 0
+    fi
+
+    echo "▶ Running shellcheck on modified scripts..."
+
+    SCRIPTS=$(git diff --cached --name-only --diff-filter=ACM | grep '\.sh$' || true)
+
+    if [ -z "$SCRIPTS" ]; then
+        echo "  No shell scripts modified"
+        return 0
+    fi
+
+    FAILED=false
+    for script in $SCRIPTS; do
+        if [ -f "$script" ]; then
+            if ! shellcheck -e SC1090 -e SC1091 "$script"; then
+                echo -e "${RED}✗ shellcheck failed for $script${NC}"
+                FAILED=true
+            fi
+        fi
+    done
+
+    if [ "$FAILED" = true ]; then
+        echo -e "${RED}✗ ShellCheck found issues${NC}"
+        return 1
+    else
+        echo -e "${GREEN}✓ ShellCheck passed${NC}"
+        return 0
+    fi
+}
+
+# Function to check syntax
+check_syntax() {
+    echo "▶ Checking bash syntax..."
+
+    SCRIPTS=$(git diff --cached --name-only --diff-filter=ACM | grep '\.sh$' || true)
+
+    if [ -z "$SCRIPTS" ]; then
+        echo "  No shell scripts modified"
+        return 0
+    fi
+
+    FAILED=false
+    for script in $SCRIPTS; do
+        if [ -f "$script" ]; then
+            if ! bash -n "$script" 2>&1; then
+                echo -e "${RED}✗ Syntax error in $script${NC}"
+                FAILED=true
+            fi
+        fi
+    done
+
+    if [ "$FAILED" = true ]; then
+        echo -e "${RED}✗ Syntax check failed${NC}"
+        return 1
+    else
+        echo -e "${GREEN}✓ Syntax check passed${NC}"
+        return 0
+    fi
+}
+
+# Run all checks
+check_secrets || EXIT_CODE=1
+check_personal_config || EXIT_CODE=1
+check_syntax || EXIT_CODE=1
+check_shellcheck || EXIT_CODE=1
+
+echo ""
+if [ $EXIT_CODE -eq 0 ]; then
+    echo -e "${GREEN}✓ All pre-commit checks passed${NC}"
+    exit 0
+else
+    echo -e "${RED}✗ Pre-commit checks failed${NC}"
+    echo ""
+    echo "Fix the issues above or use 'git commit --no-verify' to bypass (not recommended)"
+    exit 1
+fi

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhiLaunch Dashboard</title>
+    <link rel="stylesheet" href="static/css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🚀 PhiLaunch Dashboard</h1>
+                <div class="header-stats">
+                    <span class="stat" id="uptime">Uptime: --</span>
+                    <span class="stat" id="last-update">Last update: --</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Status Overview -->
+        <section class="status-overview">
+            <div class="card status-card" id="system-status">
+                <h2>System Status</h2>
+                <div class="status-indicator loading">
+                    <span class="pulse"></span>
+                    <span>Loading...</span>
+                </div>
+            </div>
+
+            <div class="card status-card" id="services-status">
+                <h2>Services</h2>
+                <div class="status-indicator loading">
+                    <span class="pulse"></span>
+                    <span>Loading...</span>
+                </div>
+            </div>
+
+            <div class="card status-card" id="tasks-status">
+                <h2>Background Tasks</h2>
+                <div class="status-indicator loading">
+                    <span class="pulse"></span>
+                    <span>Loading...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- System Metrics -->
+            <section class="card metrics-card">
+                <h2>📊 System Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-label">CPU Usage</div>
+                        <div class="metric-value" id="cpu-usage">--%</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill" id="cpu-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Memory Usage</div>
+                        <div class="metric-value" id="mem-usage">--%</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill" id="mem-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Disk Usage</div>
+                        <div class="metric-value" id="disk-usage">--%</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill" id="disk-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Network</div>
+                        <div class="metric-value" id="network-status">--</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill" id="net-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Background Tasks -->
+            <section class="card tasks-card">
+                <h2>🔄 Background Tasks</h2>
+                <div id="tasks-list" class="tasks-list">
+                    <div class="loading-spinner">Loading tasks...</div>
+                </div>
+            </section>
+
+            <!-- WoW Monitor (if enabled) -->
+            <section class="card monitor-card">
+                <h2>🎮 WoW Server Monitor</h2>
+                <div id="wow-monitor" class="monitor-content">
+                    <div class="loading-spinner">Loading monitor data...</div>
+                </div>
+            </section>
+
+            <!-- Recent Logs -->
+            <section class="card logs-card">
+                <h2>📝 Recent Activity</h2>
+                <div id="logs-content" class="logs-content">
+                    <div class="loading-spinner">Loading logs...</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Quick Actions -->
+        <aside class="sidebar">
+            <div class="card actions-card">
+                <h2>⚡ Quick Actions</h2>
+                <div class="actions-grid">
+                    <button class="action-btn" onclick="refreshDashboard()">
+                        🔄 Refresh
+                    </button>
+                    <button class="action-btn" onclick="viewLogs()">
+                        📋 View Logs
+                    </button>
+                    <button class="action-btn" onclick="openScripts()">
+                        📜 Scripts
+                    </button>
+                    <button class="action-btn" onclick="openConfig()">
+                        ⚙️ Config
+                    </button>
+                </div>
+            </div>
+
+            <div class="card info-card">
+                <h2>ℹ️ System Info</h2>
+                <div id="system-info" class="info-content">
+                    <div class="loading-spinner">Loading...</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>PhiLaunch Dashboard v1.0 | Auto-refresh: <span id="auto-refresh">ON</span></p>
+    </footer>
+
+    <script src="static/js/dashboard.js"></script>
+</body>
+</html>
